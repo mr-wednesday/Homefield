@@ -1,0 +1,17 @@
+User:
+username: string
+email: string
+balance: float
+
+Home:
+nickname: string
+homemates: Array<User>
+
+Activity:
+type: string
+owner: User
+
+Payment:
+type: string
+amount: float
+owner: User
