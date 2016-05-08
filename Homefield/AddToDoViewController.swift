@@ -41,7 +41,8 @@ class AddToDoViewController: UIViewController {
         let activityDetails=[
             "description":toDoDescription.text as NSString!,
             "type":"activity",
-            "createdAt": datePicker.date.timeIntervalSince1970,
+            "createdAt": NSDate().timeIntervalSince1970,
+            "dueTo":datePicker.date.timeIntervalSince1970
             ]
         let homeid:String = appDelegate.currentUser["home"]!
         let activityRef = ref.childByAppendingPath("task").childByAppendingPath(homeid)

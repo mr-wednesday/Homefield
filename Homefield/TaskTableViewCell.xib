@@ -26,12 +26,6 @@
                                     <constraint firstAttribute="height" constant="55" id="9i4-Oq-xFd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TASK DONE: 5/5/2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-6I-YWx">
-                                <rect key="frame" x="71" y="30" width="159" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BASTUG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0j-Jq-7T1">
                                 <rect key="frame" x="71" y="8" width="159" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -72,6 +66,18 @@
                                     <constraint firstAttribute="height" constant="32" id="awf-4t-mC7"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUE TO: 5/5/2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BD7-yc-eQG">
+                                <rect key="frame" x="71" y="41" width="159" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" red="1" green="0.11675185809999999" blue="0.28067915430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TASK DONE: 5/5/2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-6I-YWx">
+                                <rect key="frame" x="71" y="24" width="159" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -103,6 +109,7 @@
                 <outlet property="bgView" destination="qt1-ZC-v6h" id="KVE-gb-z4Q"/>
                 <outlet property="descriptionTextField" destination="zq4-Ug-Gw3" id="OeT-tH-cbr"/>
                 <outlet property="doneMark" destination="T1c-JH-lKq" id="Eh7-UI-su0"/>
+                <outlet property="dueToLabel" destination="BD7-yc-eQG" id="ifp-pp-lAZ"/>
                 <outlet property="moneyAmountLabel" destination="x1I-IK-GOM" id="e2p-yf-n5q"/>
                 <outlet property="profilePicture" destination="kcc-Fy-00m" id="bw7-J5-9ia"/>
                 <outlet property="taskDoneLabel" destination="O7j-6I-YWx" id="caz-AX-Mne"/>

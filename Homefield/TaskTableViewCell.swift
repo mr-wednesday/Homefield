@@ -13,12 +13,13 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
     
+    @IBOutlet weak var dueToLabel: UILabel!
     @IBOutlet weak var moneyAmountLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var taskDoneLabel: UILabel!
     @IBOutlet weak var typeTaskAvatar: UIImageView!
     @IBOutlet weak var doneMark: UIImageView!
-    
+    var ownerUsername:String!;
     override func awakeFromNib() {
         super.awakeFromNib()
         
