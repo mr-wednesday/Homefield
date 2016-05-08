@@ -15,22 +15,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grocery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ia-Yz-bUD">
-                        <rect key="frame" x="28" y="0.0" width="292" height="43.5"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter new payment description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="evU-k5-Gk8">
+                        <rect key="frame" x="8" y="7" width="276" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Jvv-3Z-haj"/>
+                        </constraints>
                         <color key="textColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="Ebw-S1-Ce6"/>
+                        </connections>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGh-bh-9FO">
+                        <rect key="frame" x="284" y="12" width="27.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Hhk-HO-X3H"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                        <color key="textColor" red="0.73488794189999995" green="0.13821454890000001" blue="0.063097095399999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4ia-Yz-bUD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="AF1-wj-aJK"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4ia-Yz-bUD" secondAttribute="trailing" constant="-8" id="MrX-wE-YoS"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4ia-Yz-bUD" secondAttribute="bottom" constant="-8" id="QMe-yK-2P0"/>
-                    <constraint firstItem="4ia-Yz-bUD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="t1g-aw-orS"/>
+                    <constraint firstItem="evU-k5-Gk8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="Bdi-VG-NSO"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="IGh-bh-9FO" secondAttribute="bottom" constant="2.5" id="FjM-QM-bB7"/>
+                    <constraint firstItem="evU-k5-Gk8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="HSs-7R-IyU"/>
+                    <constraint firstItem="evU-k5-Gk8" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-28" id="RiS-by-xXH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IGh-bh-9FO" secondAttribute="trailing" constant="0.5" id="TmN-eT-1VF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IGh-bh-9FO" secondAttribute="trailing" constant="-8" id="asY-9r-S4s"/>
+                    <constraint firstItem="IGh-bh-9FO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="b5T-6Q-aSC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IGh-bh-9FO" secondAttribute="trailing" constant="0.5" id="soG-b8-gdX"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="TmN-eT-1VF"/>
+                        <exclude reference="asY-9r-S4s"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="taskLabel" destination="4ia-Yz-bUD" id="IOh-iZ-Kad"/>
+                <outlet property="taskTextField" destination="evU-k5-Gk8" id="8Cv-DK-K3J"/>
+                <outlet property="todoLabel" destination="IGh-bh-9FO" id="iXM-tj-moh"/>
             </connections>
             <point key="canvasLocation" x="139" y="244"/>
         </tableViewCell>

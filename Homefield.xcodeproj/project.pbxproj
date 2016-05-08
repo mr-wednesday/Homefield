@@ -10,6 +10,10 @@
 		0AB8E1F30FEA3FA7E4A5C303 /* Pods_HomefieldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1968EDFBC79643DEE63ED76 /* Pods_HomefieldUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AED556C798404325A73AD506 /* Pods_Homefield.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79C76CE185F5DE2D0791046 /* Pods_Homefield.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D40CCB531CA22F27009D81CE /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40CCB521CA22F27009D81CE /* CreateHomeViewController.swift */; };
+		D419B6A71CDE724100571C93 /* stickman.png in Resources */ = {isa = PBXBuildFile; fileRef = D419B6A61CDE724100571C93 /* stickman.png */; };
+		D419B6A91CDE730900571C93 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = D419B6A81CDE730900571C93 /* money.png */; };
+		D419B6AB1CDE745C00571C93 /* homeiconbig.png in Resources */ = {isa = PBXBuildFile; fileRef = D419B6AA1CDE745C00571C93 /* homeiconbig.png */; };
+		D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */; };
 		D41E5BC41CB3D9560033C722 /* Papyrus_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */; };
 		D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435E2CA1CA4AFDB00DCF291 /* MainViewController.swift */; };
 		D435E2CE1CA4B0EF00DCF291 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435E2CC1CA4B0EF00DCF291 /* TaskTableViewCell.swift */; };
@@ -30,6 +34,7 @@
 		D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480ECD91CA5F763000344DE /* TaskManagerViewController.swift */; };
 		D480ECDE1CA5F9F7000344DE /* TaskItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480ECDC1CA5F9F7000344DE /* TaskItemTableViewCell.swift */; };
 		D480ECDF1CA5F9F7000344DE /* TaskItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */; };
+		D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */; };
 		D4F85E901CDBA086000853B4 /* woods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E8F1CDBA086000853B4 /* woods.jpg */; };
 		D4F85E921CDBA7D8000853B4 /* house2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E911CDBA7D8000853B4 /* house2.jpg */; };
 		D4F85E941CDBAC72000853B4 /* gravel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E931CDBAC72000853B4 /* gravel.jpg */; };
@@ -64,6 +69,10 @@
 		C79F55CFF21B02662C44090F /* Pods-HomefieldUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomefieldUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomefieldUITests/Pods-HomefieldUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1968EDFBC79643DEE63ED76 /* Pods_HomefieldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomefieldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40CCB521CA22F27009D81CE /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
+		D419B6A61CDE724100571C93 /* stickman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickman.png; sourceTree = "<group>"; };
+		D419B6A81CDE730900571C93 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money.png; sourceTree = "<group>"; };
+		D419B6AA1CDE745C00571C93 /* homeiconbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeiconbig.png; sourceTree = "<group>"; };
+		D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Papyrus_sprite.png; sourceTree = "<group>"; };
 		D435E2CA1CA4AFDB00DCF291 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D435E2CC1CA4B0EF00DCF291 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +100,7 @@
 		D480ECD91CA5F763000344DE /* TaskManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManagerViewController.swift; sourceTree = "<group>"; };
 		D480ECDC1CA5F9F7000344DE /* TaskItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItemTableViewCell.swift; sourceTree = "<group>"; };
 		D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskItemTableViewCell.xib; sourceTree = "<group>"; };
+		D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
 		D4F85E8F1CDBA086000853B4 /* woods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woods.jpg; sourceTree = "<group>"; };
 		D4F85E911CDBA7D8000853B4 /* house2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = house2.jpg; sourceTree = "<group>"; };
 		D4F85E931CDBAC72000853B4 /* gravel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gravel.jpg; sourceTree = "<group>"; };
@@ -165,12 +175,15 @@
 			isa = PBXGroup;
 			children = (
 				D437D3801CA21A5D00239E5A /* AppDelegate.swift */,
+				D419B6A61CDE724100571C93 /* stickman.png */,
 				D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */,
 				D4F85E911CDBA7D8000853B4 /* house2.jpg */,
 				D4F85E951CDBACEA000853B4 /* checked.png */,
+				D419B6AA1CDE745C00571C93 /* homeiconbig.png */,
 				D4F85E8F1CDBA086000853B4 /* woods.jpg */,
 				D437D3821CA21A5D00239E5A /* ViewController.swift */,
 				D4F85E931CDBAC72000853B4 /* gravel.jpg */,
+				D419B6A81CDE730900571C93 /* money.png */,
 				D437D3841CA21A5D00239E5A /* Main.storyboard */,
 				D437D38A1CA21A5D00239E5A /* Assets.xcassets */,
 				D437D38C1CA21A5D00239E5A /* LaunchScreen.storyboard */,
@@ -182,6 +195,8 @@
 				D435E2CD1CA4B0EF00DCF291 /* TaskTableViewCell.xib */,
 				D45D1CD61CA5E69D00B4C7C2 /* Profile */,
 				D480ECDB1CA5F768000344DE /* Task Manager */,
+				D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */,
+				D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */,
 			);
 			path = Homefield;
 			sourceTree = "<group>";
@@ -349,13 +364,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D419B6AB1CDE745C00571C93 /* homeiconbig.png in Resources */,
 				D435E2CF1CA4B0EF00DCF291 /* TaskTableViewCell.xib in Resources */,
 				D41E5BC41CB3D9560033C722 /* Papyrus_sprite.png in Resources */,
 				D437D38E1CA21A5D00239E5A /* LaunchScreen.storyboard in Resources */,
 				D4F85E921CDBA7D8000853B4 /* house2.jpg in Resources */,
 				D437D38B1CA21A5D00239E5A /* Assets.xcassets in Resources */,
 				D4F85E901CDBA086000853B4 /* woods.jpg in Resources */,
+				D419B6A71CDE724100571C93 /* stickman.png in Resources */,
 				D4F85E941CDBAC72000853B4 /* gravel.jpg in Resources */,
+				D419B6A91CDE730900571C93 /* money.png in Resources */,
 				D437D3861CA21A5D00239E5A /* Main.storyboard in Resources */,
 				D45D1CD51CA5E5FB00B4C7C2 /* BalanceTableViewCell.xib in Resources */,
 				D4F85E961CDBACEA000853B4 /* checked.png in Resources */,
@@ -516,8 +534,10 @@
 				D435E2CE1CA4B0EF00DCF291 /* TaskTableViewCell.swift in Sources */,
 				D437D3891CA21A5D00239E5A /* Homefield.xcdatamodeld in Sources */,
 				D437D3811CA21A5D00239E5A /* AppDelegate.swift in Sources */,
+				D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */,
 				D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */,
 				D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */,
+				D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */,
 				D45D1CD41CA5E5FB00B4C7C2 /* BalanceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

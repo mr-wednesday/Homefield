@@ -27,26 +27,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var me = [String:String!]()
     
+    @IBOutlet weak var navigationBarButton: UIButton!
     override func viewWillAppear(animated: Bool) {
         let appColor: UIColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
         //self.navigationController!.navigationBar.barTintColor = appColor
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
 
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
         self.tableView.registerNib(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "Task")
         
         //self.tableView.estimatedRowHeight = 66
         //self.tableView.rowHeight = UITableViewAutomaticDimension
-        
-        
-        
-
         
         self.getHouseMembers()
         self.getTasks()
@@ -74,9 +69,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let taskKey = self.taskArr[indexPath.row] as! String
             let taskObject = self.tasks[taskKey]
             if(taskObject!["type"] as! String!=="payment"){
-                cell.descriptionLabel?.text="\(taskObject!["username"] as! String!) paid \(taskObject!["amount"] as! String!) for \(taskObject!["description"] as! String!)"
+                cell.descriptionTextField?.text="\(taskObject!["description"] as! String!)"
+                cell.moneyAmountLabel.text="\(taskObject!["amount"] as! String!)£"
+                cell.moneyAmountLabel.hidden=false
+                let interval:NSTimeInterval = taskObject!["createdAt"] as! NSTimeInterval
+                let date = NSDate(timeIntervalSince1970: interval)
+                cell.taskDoneLabel.text="TASK DONE: \(date)"
+                cell.typeTaskAvatar.image = UIImage.init(named: "money.png")
+                
             }else{
-                cell.descriptionLabel?.text="Someone done the activity \(taskObject!["amount"] as! String!) for \(taskObject!["description"] as! String!)"
+                cell.descriptionTextField?.text="\(taskObject!["description"] as! String!)"
+                cell.moneyAmountLabel.hidden=true
+                let interval:NSTimeInterval = taskObject!["createdAt"] as! NSTimeInterval
+                let date = NSDate(timeIntervalSince1970: interval)
+                cell.taskDoneLabel.text="TASK DONE: \(date)"
+                cell.typeTaskAvatar.image = UIImage.init(named: "stickman.png")
+                if((taskObject!["doneBy"] == nil)){
+                    cell.doneMark.hidden=true
+                }else{
+                    cell.doneMark.hidden=false
+                }
 
             }
 
@@ -98,15 +110,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
-    /*
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     func addDataThen(){
         let newActivty = [
             "owner": ref.authData.uid,
@@ -120,12 +124,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     func getHouseMembers(){
+        //also sets nav bar title
         self.me=appDelegate.currentUser
         
         ref.childByAppendingPath("home").childByAppendingPath(me["home"]).observeSingleEventOfType(.Value, withBlock: { snapshot in
             self.home = snapshot.value as! [String : AnyObject!]
             print(snapshot.description)
             self.navigationItem.title = self.home["name"] as? String;
+            self.navigationBarButton.setTitle(self.home["name"] as? String, forState: UIControlState.Normal)
 
             // do some stuff once
 
@@ -142,20 +148,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             var keys = Array(self.tasks.keys)
             self.taskArr=keys
             
-            
             //self.taskArr = self.tasks.keys as! [String:AnyObject!];
             
-            
             self.tableView.reloadData()
-            
             
             
         })
         
     }
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier=="homeDetailsSegue"){
+            (segue.destinationViewController as! HomeDetailsViewController).home=self.home
+            (segue.destinationViewController as! HomeDetailsViewController).homeId="test"
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
     
 }

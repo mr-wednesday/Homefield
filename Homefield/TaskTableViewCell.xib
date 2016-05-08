@@ -18,12 +18,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-ZC-v6h">
                         <rect key="frame" x="8" y="8" width="304" height="162"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greatness" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-Z2-tJ4">
-                                <rect key="frame" x="8" y="70" width="77.5" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Papyrus_sprite.png" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-Fy-00m">
                                 <rect key="frame" x="8" y="7" width="55" height="55"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,14 +28,14 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TASK DONE: 5/5/2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-6I-YWx">
                                 <rect key="frame" x="71" y="30" width="159" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BASTUG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0j-Jq-7T1">
                                 <rect key="frame" x="71" y="8" width="159" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked.png" translatesAutoresizingMaskIntoConstraints="NO" id="T1c-JH-lKq">
@@ -51,14 +45,47 @@
                                     <constraint firstAttribute="width" constant="32" id="Xtf-77-vCb"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1I-IK-GOM">
+                                <rect key="frame" x="244.5" y="8" width="51.5" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27.5" id="uGl-Ls-fec"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                <color key="textColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-Ug-Gw3">
+                                <rect key="frame" x="8" y="70" width="248" height="92"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="hE4-MW-Vxn"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stickman.png" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-uc-rba">
+                                <rect key="frame" x="264" y="82" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Xfp-4p-rvE"/>
+                                    <constraint firstAttribute="height" constant="32" id="awf-4t-mC7"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="kcc-Fy-00m" firstAttribute="leading" secondItem="cEH-Z2-tJ4" secondAttribute="leading" id="Dwc-v0-fwG"/>
+                            <constraint firstAttribute="trailing" secondItem="Av5-uc-rba" secondAttribute="trailing" constant="8" id="0A9-2K-4Zx"/>
+                            <constraint firstItem="x1I-IK-GOM" firstAttribute="top" secondItem="qt1-ZC-v6h" secondAttribute="top" constant="8" id="5cW-IC-HA9"/>
+                            <constraint firstAttribute="trailing" secondItem="x1I-IK-GOM" secondAttribute="trailing" constant="8" id="CtU-ra-COh"/>
                             <constraint firstItem="kcc-Fy-00m" firstAttribute="top" secondItem="qt1-ZC-v6h" secondAttribute="top" constant="7" id="GAb-ei-OBx"/>
+                            <constraint firstItem="zq4-Ug-Gw3" firstAttribute="top" secondItem="kcc-Fy-00m" secondAttribute="bottom" constant="8" id="GzL-cd-zQv"/>
                             <constraint firstItem="kcc-Fy-00m" firstAttribute="leading" secondItem="qt1-ZC-v6h" secondAttribute="leadingMargin" id="Ts2-ga-6vZ"/>
-                            <constraint firstItem="cEH-Z2-tJ4" firstAttribute="top" secondItem="kcc-Fy-00m" secondAttribute="bottom" constant="8" symbolic="YES" id="Z0m-2E-oas"/>
+                            <constraint firstAttribute="bottom" secondItem="zq4-Ug-Gw3" secondAttribute="bottom" id="XfR-KE-qhu"/>
+                            <constraint firstItem="T1c-JH-lKq" firstAttribute="leading" secondItem="zq4-Ug-Gw3" secondAttribute="trailing" constant="8" id="afB-1X-FJZ"/>
+                            <constraint firstItem="T1c-JH-lKq" firstAttribute="top" secondItem="Av5-uc-rba" secondAttribute="bottom" constant="8" id="bE5-hc-J23"/>
                             <constraint firstAttribute="trailing" secondItem="T1c-JH-lKq" secondAttribute="trailing" constant="8" id="ebG-cG-b3e"/>
+                            <constraint firstItem="zq4-Ug-Gw3" firstAttribute="leading" secondItem="qt1-ZC-v6h" secondAttribute="leading" constant="8" id="hnN-0g-zv4"/>
                             <constraint firstAttribute="bottom" secondItem="T1c-JH-lKq" secondAttribute="bottom" constant="8" id="wsR-Rc-MSB"/>
                         </constraints>
                     </view>
@@ -74,8 +101,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bgView" destination="qt1-ZC-v6h" id="KVE-gb-z4Q"/>
-                <outlet property="descriptionLabel" destination="cEH-Z2-tJ4" id="gYa-Lk-Z8Q"/>
+                <outlet property="descriptionTextField" destination="zq4-Ug-Gw3" id="OeT-tH-cbr"/>
+                <outlet property="doneMark" destination="T1c-JH-lKq" id="Eh7-UI-su0"/>
+                <outlet property="moneyAmountLabel" destination="x1I-IK-GOM" id="e2p-yf-n5q"/>
                 <outlet property="profilePicture" destination="kcc-Fy-00m" id="bw7-J5-9ia"/>
+                <outlet property="taskDoneLabel" destination="O7j-6I-YWx" id="caz-AX-Mne"/>
+                <outlet property="typeTaskAvatar" destination="Av5-uc-rba" id="nS2-c4-58d"/>
             </connections>
             <point key="canvasLocation" x="266" y="367"/>
         </tableViewCell>
@@ -83,5 +114,6 @@
     <resources>
         <image name="Papyrus_sprite.png" width="50" height="84"/>
         <image name="checked.png" width="64" height="64"/>
+        <image name="stickman.png" width="64" height="64"/>
     </resources>
 </document>

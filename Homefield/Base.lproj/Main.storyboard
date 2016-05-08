@@ -92,7 +92,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkp-a6-esa">
                                 <rect key="frame" x="121" y="539" width="173" height="37"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="I need my password"/>
+                                <state key="normal" title="I need my password">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31547031514945811" green="0.68077256944444442" blue="0.6108787829338852" alpha="1" colorSpace="calibratedRGB"/>
@@ -230,7 +232,7 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xiH-LY-efW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xiH-LY-efW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -294,11 +296,14 @@
                                     <segment title="Activity"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="690-WJ-FBH" eventType="valueChanged" id="5B9-a1-SG0"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uys-pg-zE3">
                                 <rect key="frame" x="0.0" y="121" width="414" height="66"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="300" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12m-pW-IZi">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter the amount you paid" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12m-pW-IZi">
                                         <rect key="frame" x="23" y="0.0" width="368" height="66"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -311,6 +316,15 @@
                                             <outlet property="delegate" destination="690-WJ-FBH" id="fXd-13-Xhr"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hir-Ol-Zo0">
+                                        <rect key="frame" x="115" y="18" width="185" height="30"/>
+                                        <state key="normal" title="ADD TO-DO ACTIVITY">
+                                            <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Ue6-JE-nPV" kind="show" id="fdR-st-FWF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -321,17 +335,27 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7l7-3t-534">
-                                <rect key="frame" x="0.0" y="195" width="414" height="492"/>
+                                <rect key="frame" x="0.0" y="195" width="414" height="424"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="690-WJ-FBH" id="6do-Ve-AtU"/>
                                     <outlet property="delegate" destination="690-WJ-FBH" id="O4Z-i4-YSg"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-j6-XFe">
+                                <rect key="frame" x="125" y="627" width="165" height="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="SAVE PAYMENT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePaymentAction:" destination="690-WJ-FBH" eventType="touchUpInside" id="uMf-06-Fl8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7l7-3t-534" firstAttribute="bottom" secondItem="W4C-ls-rQb" secondAttribute="top" id="09A-N7-A56"/>
+                            <constraint firstItem="7l7-3t-534" firstAttribute="bottom" secondItem="W4C-ls-rQb" secondAttribute="top" constant="-68" id="09A-N7-A56"/>
                             <constraint firstItem="7l7-3t-534" firstAttribute="leading" secondItem="vmC-P0-jIg" secondAttribute="leading" id="1lb-AQ-QMH"/>
                             <constraint firstItem="b2h-ab-aaH" firstAttribute="trailing" secondItem="vmC-P0-jIg" secondAttribute="trailingMargin" id="2E9-Yj-GCt"/>
                             <constraint firstItem="b2h-ab-aaH" firstAttribute="top" secondItem="QUc-de-ILf" secondAttribute="bottom" constant="8" id="7Of-Hw-uTu"/>
@@ -344,13 +368,124 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToDoActionButton" destination="hir-Ol-Zo0" id="diF-ew-KD8"/>
+                        <outlet property="savePaymentButton" destination="FZb-j6-XFe" id="jbn-7D-3QL"/>
+                        <outlet property="segmentedControl" destination="b2h-ab-aaH" id="ChS-yq-gnB"/>
                         <outlet property="tableView" destination="7l7-3t-534" id="Ght-sw-RvE"/>
+                        <outlet property="taskBackgroundView" destination="uys-pg-zE3" id="jdp-5t-OPt"/>
                         <outlet property="taskTextField" destination="12m-pW-IZi" id="UXc-1Y-wVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-Bk-97K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="835"/>
+            <point key="canvasLocation" x="2526" y="835"/>
+        </scene>
+        <!--Add To Do View Controller-->
+        <scene sceneID="1JT-hg-y6q">
+            <objects>
+                <viewController id="Ue6-JE-nPV" customClass="AddToDoViewController" customModule="Homefield" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QDY-SZ-8TP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jd0-fo-D1Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eCi-7L-02B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="3CC-0c-MtI">
+                                <rect key="frame" x="0.0" y="247" width="414" height="216"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <date key="date" timeIntervalSinceReferenceDate="484342812.03236598">
+                                    <!--2016-05-07 19:40:12 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="Ue6-JE-nPV" eventType="valueChanged" id="jLT-sA-xEL"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fT-cp-7Pc">
+                                <rect key="frame" x="160" y="643" width="95" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="SAVE TO DO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToDoButtonAction:" destination="Ue6-JE-nPV" eventType="touchUpInside" id="lrH-3H-wjh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter to do description and select it's due date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQU-L3-cW7">
+                                <rect key="frame" x="20" y="149" width="374" height="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ue6-JE-nPV" id="3ao-Ex-aF6"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="3CC-0c-MtI" id="DkS-Ac-3zX"/>
+                        <outlet property="saveToDoButton" destination="2fT-cp-7Pc" id="3Lw-MJ-peB"/>
+                        <outlet property="toDoDescription" destination="UQU-L3-cW7" id="6Sj-Gx-ARf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d05-SP-2jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3067" y="835"/>
+        </scene>
+        <!--Home Details View Controller-->
+        <scene sceneID="vim-S4-abX">
+            <objects>
+                <viewController id="s7S-oP-S9b" customClass="HomeDetailsViewController" customModule="Homefield" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LHu-oi-oQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="sQF-8h-nds"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tB3-JP-qAF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WAYNE MANOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="w0n-7r-48o">
+                                <rect key="frame" x="20" y="90" width="374" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="homeiconbig.png" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-Oi-JZh">
+                                <rect key="frame" x="147" y="138" width="120" height="120"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-rU-ctw">
+                                <rect key="frame" x="0.0" y="439" width="414" height="248"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is your unique home id. Click it to copy and send it to your homemates for them to join the Wayne Manor!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-XC-TVs">
+                                <rect key="frame" x="20" y="352" width="374" height="86"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XU3-4k-pgZ">
+                                <rect key="frame" x="130" y="296" width="155" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="ASDISAD"/>
+                                <connections>
+                                    <action selector="homeIdClick:" destination="s7S-oP-S9b" eventType="touchUpInside" id="Wgo-bl-uCo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Rhl-XC-TVs" id="Tgp-ay-Yu7"/>
+                        <outlet property="homeIdButton" destination="XU3-4k-pgZ" id="pJD-zh-dbc"/>
+                        <outlet property="homeNameLabel" destination="w0n-7r-48o" id="oDg-cg-e9m"/>
+                        <outlet property="tableView" destination="Upz-rU-ctw" id="gdC-Ob-Kjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Gc-ug-SkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="52"/>
         </scene>
         <!--Home-->
         <scene sceneID="Qhb-gN-X6l">
@@ -364,9 +499,9 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-FV-lDf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-FV-lDf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
-                                <color key="backgroundColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -374,7 +509,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5G4-Xe-sg9" id="eLW-TC-Jbz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -382,7 +517,7 @@
                                         <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlb-UH-nB1" id="Szg-On-v8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -390,7 +525,7 @@
                                         <rect key="frame" x="0.0" y="116" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IzK-Pm-J1U" id="GpP-ea-m1R">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -398,7 +533,7 @@
                                         <rect key="frame" x="0.0" y="160" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CW8-r2-CI8" id="c7v-BQ-yVe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -406,7 +541,7 @@
                                         <rect key="frame" x="0.0" y="204" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xTi-bh-cUJ" id="O8O-cP-0Dy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -430,14 +565,25 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Home" id="wcA-oe-52N"/>
                     <navigationItem key="navigationItem" id="0Wy-ZK-ePg">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="izL-bR-yKY">
+                            <rect key="frame" x="124.5" y="7" width="165" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                            <state key="normal" title="Wayne Manor"/>
+                            <connections>
+                                <segue destination="s7S-oP-S9b" kind="show" identifier="homeDetailsSegue" id="8ap-qo-efO"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="a86-3g-q6J">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="690-WJ-FBH" kind="show" id="gGG-Kp-tkb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navigationBarButton" destination="izL-bR-yKY" id="xd8-04-4i2"/>
                         <outlet property="tableView" destination="G7D-FV-lDf" id="AGP-Zq-tM1"/>
                     </connections>
                 </viewController>
@@ -464,10 +610,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="homeiconbig.png" width="512" height="512"/>
         <image name="house2.jpg" width="800" height="533"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wOx-r9-o1e"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
