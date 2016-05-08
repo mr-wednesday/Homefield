@@ -68,6 +68,7 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
             self.addToDoActionButton.hidden=false
 
         }
+        self.tableView.reloadData()
     }
     
     @IBAction func savePaymentAction(sender: AnyObject) {
@@ -76,7 +77,7 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         self.navigationController?.popViewControllerAnimated(true)
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(segmentedControl.selectedSegmentIndex==1){
+        if(segmentedControl.selectedSegmentIndex==0){
             return 1
         }else{
             return toDoTasks.count+1
@@ -91,7 +92,6 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
             cell.todoLabel.hidden=true
         }else{
             //OKAY THESE ARE TODO ACTIVITY ITEMS SO BE CAREFUL PLS - UGUR
-
             if(segmentedControl.selectedSegmentIndex==1){
                 let toDoTask = toDoTasks[indexPath.row-1]
                 cell.taskTextField?.text = toDoTask.description
