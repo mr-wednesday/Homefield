@@ -187,9 +187,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getTasks(){
-        
-        ref.childByAppendingPath("task").childByAppendingPath(me["home"]).observeEventType(.Value, withBlock: { snapshot in
-            
+        (ref.childByAppendingPath("task").childByAppendingPath(me["home"])).queryOrderedByChild("createdAt").observeEventType(.Value, withBlock: { snapshot in
+            self.taskObjects.removeAll()
             for child in snapshot.children.allObjects as! [FDataSnapshot] {
                 let task = Task();
                 task.ref = child.ref.description
@@ -223,6 +222,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
                 }
             }
+            self.taskObjects = self.taskObjects.reverse()
             self.tableView.reloadData()
             
             
@@ -235,6 +235,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(segue.identifier=="homeDetailsSegue"){
             (segue.destinationViewController as! HomeDetailsViewController).home=self.home
             (segue.destinationViewController as! HomeDetailsViewController).homeId="test"
+        }
+        if(segue.identifier=="taskManagerSegue"){
+            (segue.destinationViewController as! TaskManagerViewController).allTasks=taskObjects
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

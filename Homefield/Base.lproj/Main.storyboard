@@ -311,7 +311,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.41206226400000001" green="0.82546164769999997" blue="0.78677608389999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="690-WJ-FBH" id="fXd-13-Xhr"/>
                                         </connections>
@@ -578,7 +578,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="a86-3g-q6J">
                             <color key="tintColor" red="0.31547031510000001" green="0.68077256939999997" blue="0.61087878289999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="690-WJ-FBH" kind="show" id="gGG-Kp-tkb"/>
+                                <segue destination="690-WJ-FBH" kind="show" identifier="taskManagerSegue" id="gGG-Kp-tkb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

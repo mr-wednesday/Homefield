@@ -22,9 +22,22 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var addToDoActionButton: UIButton!
     
+    var allTasks = [Task]()
+    var toDoTasks = [Task]()
+    
+    
+    func getToDoTasks(){
+        for task in allTasks{
+            if ((task.doneBy == nil)){
+                //if task is not created so it is a todo item.
+                toDoTasks.append(task)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getPaymentToDos()
+        getToDoTasks()
+        
         self.addToDoActionButton.hidden=true
         self.tableView.registerNib(UINib(nibName: "TaskItemTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskItem")
         appDelegate.setButtonStyle(savePaymentButton)
@@ -59,11 +72,15 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func savePaymentAction(sender: AnyObject) {
         let firstCell:TaskItemTableViewCell = self.tableView.cellForRowAtIndexPath(ip) as! TaskItemTableViewCell
-        self.savePayment(self.taskTextField.text!, paymentDescription: firstCell.taskTextField.text!)
+        self.saveTask(self.taskTextField.text!, paymentDescription: firstCell.taskTextField.text!)
         self.navigationController?.popViewControllerAnimated(true)
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paymentTodos.count+1
+        if(segmentedControl.selectedSegmentIndex==1){
+            return 1
+        }else{
+            return toDoTasks.count+1
+        }
     }
     
     
@@ -73,9 +90,14 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
             cell.taskTextField.delegate=self
             cell.todoLabel.hidden=true
         }else{
-            let paymentTodoKey = self.paymentTodoKeys[indexPath.row] as! String
-            let paymentTodoObject = self.paymentTodos[paymentTodoKey]
-            cell.detailTextLabel?.text = paymentTodoObject!["description"] as! String!
+            //OKAY THESE ARE TODO ACTIVITY ITEMS SO BE CAREFUL PLS - UGUR
+
+            if(segmentedControl.selectedSegmentIndex==1){
+                let toDoTask = toDoTasks[indexPath.row-1]
+                cell.taskTextField?.text = toDoTask.description
+                cell.taskTextField.userInteractionEnabled=false
+            }
+
         }
         
         return cell
@@ -87,20 +109,21 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell:TaskItemTableViewCell = tableView.dequeueReusableCellWithIdentifier("TaskItem", forIndexPath: indexPath) as! TaskItemTableViewCell
+        //let cell:TaskItemTableViewCell = tableView.dequeueReusableCellWithIdentifier("TaskItem", forIndexPath: indexPath) as! TaskItemTableViewCell
         if(indexPath.row==0){
-            
+            //NO ACTION FOR THE FIRST ONE BECAUSE IT IS MANUAL...
         }else{
+            let toDoTask = toDoTasks[indexPath.row-1]
+
             let alert = UIAlertController()
             alert.title = "Task"
-            alert.message = "Do you really want to pay \(taskTextField.text!) for \(cell.taskTextField.text!)"
+            alert.message = "Did you really did the activity: \(toDoTask.description)"
+            
             alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler:{(alert :UIAlertAction!) in
-                //self.uploadBalance(self.taskTextField.text!, paymentDescription: cell.taskTextField.text!)
-                
+                self.markTodoAsDone(toDoTask)
             }))
             alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
             
@@ -110,7 +133,18 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
     }
-    func savePayment(paymentAmount: String, paymentDescription: String){
+    
+    func markTodoAsDone(task: Task){
+        let taskRef = Firebase.init(url: task.ref)
+        
+        let updates = ["doneBy": ref.authData.uid,
+                       "username":appDelegate.currentUser["username"] as String!
+        ]
+
+        taskRef.updateChildValues(updates)
+    }
+    
+    func saveTask(paymentAmount: String, paymentDescription: String){
         if (self.savePaymentButton.currentTitle=="SAVE PAYMENT") {
             let paymentDetails=[
                 "doneBy":ref.authData.uid,
@@ -147,43 +181,8 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         textField.resignFirstResponder()
         return true;
     }
-    func getActivities(){
-        let homeid:String = appDelegate.currentUser["home"]!
-        let tasksForHome = ref.childByAppendingPath("task").childByAppendingPath(homeid)
-        
-        tasksForHome.observeSingleEventOfType(.Value,withBlock: { snapshot in
-            self.paymentTodos=snapshot.value as! [String:AnyObject!]
-            var keys = Array(self.paymentTodos.keys)
-            self.paymentTodoKeys=keys
-            
-            self.tableView.reloadData()
-        })
-        
-    }
-    func getPaymentToDos(){
-        let homeid:String = appDelegate.currentUser["home"]!
-        let paymentRef = ref.childByAppendingPath("task").childByAppendingPath("payment").childByAppendingPath(homeid).childByAppendingPath("todos")
-        
-        paymentRef.observeSingleEventOfType(.Value,withBlock: { snapshot in
-            self.paymentTodos=snapshot.value as! [String:AnyObject!]
-            var keys = Array(self.paymentTodos.keys)
-            self.paymentTodoKeys=keys
-            
-            self.tableView.reloadData()
-        })
-        
-        
-        
-    }
-    func savePaymentToDos(){
-        let homeid:String = appDelegate.currentUser["home"]!
-        let paymentRef = ref.childByAppendingPath("task").childByAppendingPath(homeid).childByAutoId()
-        
-        paymentRef.setValue(["description":"Rent","type":"payment"])
-        
-        
-        
-    }
+
+
     
     /*
      // MARK: - Navigation
