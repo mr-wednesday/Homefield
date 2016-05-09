@@ -40,8 +40,8 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         
         self.addToDoActionButton.hidden=true
         self.tableView.registerNib(UINib(nibName: "TaskItemTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskItem")
-        appDelegate.setButtonStyle(savePaymentButton)
-        appDelegate.setButtonStyle(addToDoActionButton)
+        appDelegate.setButtonStyle(savePaymentButton,borderColor: UIColor.whiteColor())
+        appDelegate.setButtonStyle(addToDoActionButton,borderColor: UIColor.whiteColor())
         // Do any additional setup after loading the view.
     }
     

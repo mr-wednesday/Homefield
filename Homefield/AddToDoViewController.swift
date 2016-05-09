@@ -19,7 +19,7 @@ class AddToDoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate.underLinesStyleForTextField(toDoDescription)
-        appDelegate.setButtonStyle(saveToDoButton)
+        appDelegate.setButtonStyle(saveToDoButton,borderColor:appDelegate.appColor)
         // Do any additional setup after loading the view.
     }
     

@@ -33,8 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         textField.layer.masksToBounds = true
         
     }
-    func setButtonStyle(button:UIButton){
-        button.layer.borderColor=UIColor.whiteColor().CGColor
+    func setButtonStyle(button:UIButton,borderColor:UIColor){
+
+        button.layer.borderColor=borderColor.CGColor
         button.layer.borderWidth=1.2
         button.layer.cornerRadius=16
         button.layer.masksToBounds=true
