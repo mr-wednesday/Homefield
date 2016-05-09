@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeDetailsViewController: UIViewController {
+class HomeDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var home = [String:AnyObject!]()
 
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -35,7 +35,16 @@ class HomeDetailsViewController: UIViewController {
     descriptionLabel.text="Your home id is copied to your clipboard!"
     }
     
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "hi")
+        return cell
+    }
     /*
     // MARK: - Navigation
 

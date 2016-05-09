@@ -16,9 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentUser = [String:String!]()
     var window: UIWindow?
     var appColor:UIColor=UIColor()
+    var dueRedColor:UIColor=UIColor()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        
         appColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
+        dueRedColor = UIColor.init(red: 133/255.0, green: 34/255.0, blue: 27/255.0, alpha: 1.0)
 
         // Override point for customization after application launch.
         return true

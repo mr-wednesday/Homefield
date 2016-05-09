@@ -17,4 +17,12 @@ class Task {
     var dueTo:NSTimeInterval!
     var ref:String!
 
+    func checkIfTaskPastIsDueDate()->Bool{
+        if(dueTo<=NSDate().timeIntervalSince1970){
+            //due to is lesser than now. so it is past it is due date.
+            return true
+        }else{
+            return false
+        }
+    }
 }

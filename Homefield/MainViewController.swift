@@ -60,12 +60,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView:UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         
         let cell:TaskTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("Task", forIndexPath: indexPath) as! TaskTableViewCell
-        
         if(taskObjects.count>0){
             
             let taskObject = taskObjects[indexPath.row]
             if((taskObject.doneBy) != nil){
                 cell.ownerUsername = taskObject.doneBy
+            }
+            if((taskObject.username) != nil){
+                cell.taskDoneByUsernameLabel.text=taskObject.username.uppercaseString
+                cell.taskDoneByUsernameLabel.textColor=appDelegate.appColor
+                
+            }else{
+                cell.taskDoneByUsernameLabel.text="STILL DUE"
+                cell.taskDoneByUsernameLabel.textColor=UIColor.redColor()
             }
             if(taskObject.type=="payment"){
                 cell.descriptionTextField?.text="\(taskObject.description)"
@@ -83,11 +90,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.typeTaskAvatar.image = UIImage.init(named: "money.png")
                 cell.dueToLabel.hidden=true
                 cell.doneMark.image = UIImage.init(named: "checked")
+                cell.bgView.backgroundColor = UIColor.whiteColor()
 
             }else{
                 cell.descriptionTextField?.text="\(taskObject.description)"
                 cell.moneyAmountLabel.hidden=true
-
+                
                 let interval:NSTimeInterval = taskObject.createdAt
                 let date = NSDate(timeIntervalSince1970: interval)
                 let dateFormatter = NSDateFormatter()
@@ -99,6 +107,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.typeTaskAvatar.image = UIImage.init(named: "stickman.png")
                 if(taskObject.doneBy == nil){
                     //TO DO ACTIVITY
+                    
+                    if(taskObject.checkIfTaskPastIsDueDate()){
+                        cell.bgView.backgroundColor = appDelegate.dueRedColor
+                        cell.taskDoneByUsernameLabel.text="PAST DUE"
+
+                    }else{
+                        cell.bgView.backgroundColor = UIColor.whiteColor()
+                    }
                     cell.dueToLabel.hidden=false
                     
                     let interval:NSTimeInterval = taskObject.dueTo
@@ -114,6 +130,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     //DONE ACTIVITY
                     cell.dueToLabel.hidden=true
                     cell.doneMark.image = UIImage.init(named: "checked")
+                    cell.bgView.backgroundColor = UIColor.whiteColor()
 
                 }
                 
@@ -147,7 +164,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else{
             return false
         }
-
+        
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
@@ -209,7 +226,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         task.type = child.value.objectForKey("type") as! String
                         task.createdAt = (child.value.objectForKey("createdAt") as! NSTimeInterval)
                         task.dueTo = (child.value.objectForKey("dueTo") as! NSTimeInterval)
-
+                        
                         self.taskObjects.append(task)
                     }else{
                         task.description = child.value.objectForKey("description") as! String
@@ -219,7 +236,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         task.createdAt = (child.value.objectForKey("createdAt") as! NSTimeInterval)
                         self.taskObjects.append(task)
                     }
-
+                    
                 }
             }
             self.taskObjects = self.taskObjects.reverse()
@@ -234,7 +251,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier=="homeDetailsSegue"){
             (segue.destinationViewController as! HomeDetailsViewController).home=self.home
-            (segue.destinationViewController as! HomeDetailsViewController).homeId="test"
+            (segue.destinationViewController as! HomeDetailsViewController).homeId=self.me["home"]!
         }
         if(segue.identifier=="taskManagerSegue"){
             (segue.destinationViewController as! TaskManagerViewController).allTasks=taskObjects
@@ -242,6 +259,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+    
+
     
     
 }

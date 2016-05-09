@@ -10,6 +10,7 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var taskDoneByUsernameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
     
@@ -34,6 +35,8 @@ class TaskTableViewCell: UITableViewCell {
         self.bgView.layer.masksToBounds=false
         self.bgView.layer.borderColor=goldColor.CGColor
         self.bgView.layer.borderWidth=0.2
+        
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

@@ -30,7 +30,11 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         for task in allTasks{
             if ((task.doneBy == nil)){
                 //if task is not created so it is a todo item.
-                toDoTasks.append(task)
+                if(!task.checkIfTaskPastIsDueDate()){
+                    //if due is not passed you can still do it
+                    toDoTasks.append(task)
+                    
+                }
             }
         }
     }

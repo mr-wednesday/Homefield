@@ -23,14 +23,12 @@ class ViewController: UIViewController {
     
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+    
     let ref = Firebase(url:"https://homefield.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
-        
         
     }
     func underLinesStyleForTextField(textField:UITextField){
@@ -52,7 +50,7 @@ class ViewController: UIViewController {
     func buttonStyles(){
         self.setButtonStyle(registerButton)
         self.setButtonStyle(loginButton)
-self.setButtonStyle(forgotPass)
+        self.setButtonStyle(forgotPass)
         self.underLinesStyleForTextField(emailTextfield)
         self.underLinesStyleForTextField(passwordTextField)
     }
@@ -72,45 +70,49 @@ self.setButtonStyle(forgotPass)
         }
     }
     @IBAction func register(sender: AnyObject) {
-        
-        ref.authUser(self.emailTextfield.text, password:self.passwordTextField.text) {
-            error, authData in
-            if error != nil {
-                // Something went wrong. :(
-            } else {
-                // Authentication just completed successfully :)
-                // The logged in user's unique identifier
-                // Create a new user dictionary accessing the user's info
-                // provided by the authData parameter
-                let newUser = [
-                    "provider": authData.provider,
-                    "username": self.usernameTextField.text,
-                    "email": self.emailTextfield.text
-                ]
-                self.login(self)
-                // Create a child path with a key set to the uid underneath the "users" node
-                // This creates a URL path like the following:
-                //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
-                self.ref.childByAppendingPath("user")
-                    .childByAppendingPath(authData.uid).setValue(newUser)
+        if(usernameTextField.hidden){
+            usernameTextField.hidden=false
+            
+        }else{
+            
+            self.ref.createUser(self.emailTextfield.text, password: self.passwordTextField.text) { (error: NSError!) in
+                // 2
+                if error == nil {
+                    // 3
+                    self.ref.authUser(self.emailTextfield.text, password: self.passwordTextField.text,
+                                      withCompletionBlock: { (error, auth) -> Void in
+                                        // 4
+                                        let newUser = [
+                                            "provider": self.ref.authData.provider,
+                                            "username": self.usernameTextField.text,
+                                            "email": self.emailTextfield.text
+                                        ]
+                                        self.ref.childByAppendingPath("user")
+                                            .childByAppendingPath(self.ref.authData.uid).setValue(newUser)
+                                        self.login(self)
+                    })
+                }
             }
+            
+            
         }
+        
         
     }
     
     
     @IBAction func login(sender: AnyObject) {
         ref.authUser(emailTextfield.text, password: passwordTextField.text,
-            withCompletionBlock: { error, authData in
-                if error != nil {
-                    // There was an error logging in to this account
-                    print(error)
-                } else {
-                    print("successfully logged in")
-                    // Get a reference to our posts
-                    self.getUserData()
-                    // We are now logged in
-                }
+                     withCompletionBlock: { error, authData in
+                        if error != nil {
+                            // There was an error logging in to this account
+                            print(error)
+                        } else {
+                            print("successfully logged in")
+                            // Get a reference to our posts
+                            self.getUserData()
+                            // We are now logged in
+                        }
         })
     }
     
@@ -121,13 +123,13 @@ self.setButtonStyle(forgotPass)
             if(self.checkIfUserHasHome()){
                 print("guy has a home")
                 self.performSegueWithIdentifier("navigationSegue", sender: nil)
-
+                
             }else{
+                print("no home register or create screen")
                 self.performSegueWithIdentifier("createHome", sender: nil)
             }
             
         })
-        
         
     }
     

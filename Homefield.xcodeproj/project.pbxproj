@@ -28,6 +28,9 @@
 		D437D38E1CA21A5D00239E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D437D38C1CA21A5D00239E5A /* LaunchScreen.storyboard */; };
 		D437D3991CA21A5D00239E5A /* HomefieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D437D3981CA21A5D00239E5A /* HomefieldTests.swift */; };
 		D437D3A41CA21A5D00239E5A /* HomefieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D437D3A31CA21A5D00239E5A /* HomefieldUITests.swift */; };
+		D459F30C1CE11CAD0049A815 /* sans.png in Resources */ = {isa = PBXBuildFile; fileRef = D459F30B1CE11CAD0049A815 /* sans.png */; };
+		D459F3141CE132960049A815 /* PictureRendererTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459F3121CE132960049A815 /* PictureRendererTableViewCell.swift */; };
+		D459F3151CE132960049A815 /* PictureRendererTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D459F3131CE132960049A815 /* PictureRendererTableViewCell.xib */; };
 		D45D1CCD1CA5E52000B4C7C2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D1CCC1CA5E52000B4C7C2 /* ProfileTableViewController.swift */; };
 		D45D1CD01CA5E5E600B4C7C2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D1CCE1CA5E5E600B4C7C2 /* ProfileTableViewCell.swift */; };
 		D45D1CD11CA5E5E600B4C7C2 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45D1CCF1CA5E5E600B4C7C2 /* ProfileTableViewCell.xib */; };
@@ -96,6 +99,9 @@
 		D437D3A31CA21A5D00239E5A /* HomefieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomefieldUITests.swift; sourceTree = "<group>"; };
 		D437D3A51CA21A5D00239E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D437D3B11CA21D0D00239E5A /* libPods-Homefield-Firebase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Homefield-Firebase.a"; path = "Pods/../build/Debug-iphoneos/libPods-Homefield-Firebase.a"; sourceTree = "<group>"; };
+		D459F30B1CE11CAD0049A815 /* sans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sans.png; sourceTree = "<group>"; };
+		D459F3121CE132960049A815 /* PictureRendererTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureRendererTableViewCell.swift; sourceTree = "<group>"; };
+		D459F3131CE132960049A815 /* PictureRendererTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureRendererTableViewCell.xib; sourceTree = "<group>"; };
 		D45D1CCC1CA5E52000B4C7C2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		D45D1CCE1CA5E5E600B4C7C2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D45D1CCF1CA5E5E600B4C7C2 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -178,17 +184,9 @@
 		D437D37F1CA21A5D00239E5A /* Homefield */ = {
 			isa = PBXGroup;
 			children = (
+				D459F30F1CE131A30049A815 /* Images */,
 				D437D3801CA21A5D00239E5A /* AppDelegate.swift */,
-				D419B6A61CDE724100571C93 /* stickman.png */,
-				D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */,
-				D4F85E911CDBA7D8000853B4 /* house2.jpg */,
-				D4F85E951CDBACEA000853B4 /* checked.png */,
-				D419B6AA1CDE745C00571C93 /* homeiconbig.png */,
-				D419B6B01CDFFBEC00571C93 /* warning.png */,
-				D4F85E8F1CDBA086000853B4 /* woods.jpg */,
 				D437D3821CA21A5D00239E5A /* ViewController.swift */,
-				D4F85E931CDBAC72000853B4 /* gravel.jpg */,
-				D419B6A81CDE730900571C93 /* money.png */,
 				D437D3841CA21A5D00239E5A /* Main.storyboard */,
 				D437D38A1CA21A5D00239E5A /* Assets.xcassets */,
 				D437D38C1CA21A5D00239E5A /* LaunchScreen.storyboard */,
@@ -223,6 +221,25 @@
 				D437D3A51CA21A5D00239E5A /* Info.plist */,
 			);
 			path = HomefieldUITests;
+			sourceTree = "<group>";
+		};
+		D459F30F1CE131A30049A815 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D419B6A61CDE724100571C93 /* stickman.png */,
+				D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */,
+				D4F85E911CDBA7D8000853B4 /* house2.jpg */,
+				D4F85E951CDBACEA000853B4 /* checked.png */,
+				D419B6AA1CDE745C00571C93 /* homeiconbig.png */,
+				D419B6B01CDFFBEC00571C93 /* warning.png */,
+				D4F85E8F1CDBA086000853B4 /* woods.jpg */,
+				D4F85E931CDBAC72000853B4 /* gravel.jpg */,
+				D419B6A81CDE730900571C93 /* money.png */,
+				D459F30B1CE11CAD0049A815 /* sans.png */,
+				D459F3121CE132960049A815 /* PictureRendererTableViewCell.swift */,
+				D459F3131CE132960049A815 /* PictureRendererTableViewCell.xib */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		D45D1CD61CA5E69D00B4C7C2 /* Profile */ = {
@@ -371,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D419B6AB1CDE745C00571C93 /* homeiconbig.png in Resources */,
+				D459F30C1CE11CAD0049A815 /* sans.png in Resources */,
 				D435E2CF1CA4B0EF00DCF291 /* TaskTableViewCell.xib in Resources */,
 				D41E5BC41CB3D9560033C722 /* Papyrus_sprite.png in Resources */,
 				D437D38E1CA21A5D00239E5A /* LaunchScreen.storyboard in Resources */,
@@ -385,6 +403,7 @@
 				D45D1CD51CA5E5FB00B4C7C2 /* BalanceTableViewCell.xib in Resources */,
 				D4F85E961CDBACEA000853B4 /* checked.png in Resources */,
 				D45D1CD11CA5E5E600B4C7C2 /* ProfileTableViewCell.xib in Resources */,
+				D459F3151CE132960049A815 /* PictureRendererTableViewCell.xib in Resources */,
 				D480ECDF1CA5F9F7000344DE /* TaskItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +559,7 @@
 				D40CCB531CA22F27009D81CE /* CreateHomeViewController.swift in Sources */,
 				D435E2CE1CA4B0EF00DCF291 /* TaskTableViewCell.swift in Sources */,
 				D437D3891CA21A5D00239E5A /* Homefield.xcdatamodeld in Sources */,
+				D459F3141CE132960049A815 /* PictureRendererTableViewCell.swift in Sources */,
 				D437D3811CA21A5D00239E5A /* AppDelegate.swift in Sources */,
 				D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */,
 				D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */,

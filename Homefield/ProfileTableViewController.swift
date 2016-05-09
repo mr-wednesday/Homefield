@@ -21,6 +21,10 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    @IBAction func logout(sender: AnyObject) {
+        appDelegate.myRootRef.unauth()
+        self.performSegueWithIdentifier("loginModal", sender: self)
+    }
     override func viewDidLoad() {
         
         //PROTOTOTYPE ONLY
