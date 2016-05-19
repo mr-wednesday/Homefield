@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
-    let ref = Firebase(url:"https://homefield.firebaseio.com/")
+    let ref = FIRDatabase.database().reference()
     var userData = [String: String]()
     var option:String=""
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -20,6 +20,7 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var rentTextField: UITextField!
     var appDelegate=AppDelegate() //You create a new instance,not get the exist one
     var homeIsValid=true
+    var uid = FIRAuth.auth()?.currentUser?.uid
     //TODO CHECK
     @IBAction func registerExistingHomeClick(sender: AnyObject) {
         
@@ -27,14 +28,14 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
             //Register the home to the user class
             if(homeIsValid){
                 let id = self.homeIdTextField.text
-                let base = ref.childByAppendingPath("home").childByAppendingPath(id).childByAppendingPath("members")
-                base.childByAutoId().setValue(ref.authData.uid)
+                let base = ref.child("home").child(id!).child("members")
+                base.childByAutoId().setValue(uid)
                 //Register the user to the home class
                 let homeData = [
                     "home": id!
                 ]
-                self.ref.childByAppendingPath("user")
-                    .childByAppendingPath(self.ref.authData.uid).updateChildValues(homeData)
+                self.ref.child("user")
+                    .child(uid!).updateChildValues(homeData)
             }
 
         }else{
@@ -60,9 +61,6 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     }
     
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        
-    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return true
     }
@@ -74,11 +72,14 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     
     
     func createNewHome(){
-        var homeRef = ref.childByAppendingPath("home")
+        
+        var homeRef = ref.child("home")
         homeRef = homeRef.childByAutoId()
         
-        let homeData:NSDictionary = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":[ref.authData.uid]];
-        
+        let homeMembersInit = NSArray.init(object: uid!)
+        let homeData:[String:AnyObject] = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":homeMembersInit];
+        homeRef.setValue(homeData)
+        /*
         homeRef.setValue(homeData, withCompletionBlock: {
             (error:NSError?, ref:Firebase!) in
             if (error != nil) {
@@ -87,6 +88,7 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
                 print("Data saved successfully!")
             }
         })
+         */
     }
     
     

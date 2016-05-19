@@ -12,7 +12,7 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var taskBackgroundView: UIView!
     @IBOutlet weak var savePaymentButton: UIButton!
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let ref = Firebase(url:"https://homefield.firebaseio.com/")
+    var ref = FIRDatabase.database().reference()
     var paymentTodos = [String:AnyObject!]()
     var paymentTodoKeys = [AnyObject]()
     let ip = NSIndexPath.init(forItem: 0, inSection: 0)
@@ -25,7 +25,8 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     var allTasks = [Task]()
     var toDoTasks = [Task]()
     
-    
+    var uid = FIRAuth.auth()?.currentUser?.uid
+
     func getToDoTasks(){
         for task in allTasks{
             if ((task.doneBy == nil)){
@@ -139,9 +140,9 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func markTodoAsDone(task: Task){
-        let taskRef = Firebase.init(url: task.ref)
+        let taskRef = FIRDatabase.init().referenceWithPath(task.ref)
         
-        let updates = ["doneBy": ref.authData.uid,
+        let updates = ["doneBy": uid,
                        "username":appDelegate.currentUser["username"] as String!
         ]
 
@@ -150,8 +151,8 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func saveTask(paymentAmount: String, paymentDescription: String){
         if (self.savePaymentButton.currentTitle=="SAVE PAYMENT") {
-            let paymentDetails=[
-                "doneBy":ref.authData.uid,
+            let paymentDetails : [NSString:AnyObject] = [
+                "doneBy":uid!,
                 "description":paymentDescription,
                 "amount": paymentAmount,
                 "type":"payment",
@@ -159,20 +160,20 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
                 "createdAt": NSDate().timeIntervalSince1970,
                 ]
             let homeid:String = appDelegate.currentUser["home"]!
-            let paymentRef = ref.childByAppendingPath("task").childByAppendingPath(homeid)
+            let paymentRef = ref.child("task").child(homeid)
             
             paymentRef.childByAutoId().setValue(paymentDetails)
         }
         if(self.savePaymentButton.currentTitle=="SAVE ACTIVITY"){
-            let activityDetails=[
-                "doneBy":ref.authData.uid,
+            let activityDetails : [NSString:AnyObject] = [
+                "doneBy":uid!,
                 "description":paymentDescription,
                 "type":"activity",
                 "username":appDelegate.currentUser["username"] as String!,
                 "createdAt": NSDate().timeIntervalSince1970,
                 ]
             let homeid:String = appDelegate.currentUser["home"]!
-            let activityRef = ref.childByAppendingPath("task").childByAppendingPath(homeid)
+            let activityRef = ref.child("task").childByAppendingPath(homeid)
             activityRef.childByAutoId().setValue(activityDetails)
         }
 
@@ -180,13 +181,12 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
     }
+
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         textField.resignFirstResponder()
         return true;
     }
-
-
     
     /*
      // MARK: - Navigation

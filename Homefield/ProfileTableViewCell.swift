@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ProfileTableViewCell: UITableViewCell {
+class ProfileTableViewCell: UITableViewCell
+{
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
+    @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,9 @@ class ProfileTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func openCameraRoll(sender: AnyObject) {
+        
     }
     
 }

@@ -24,10 +24,12 @@ class ViewController: UIViewController {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    let ref = Firebase(url:"https://homefield.firebaseio.com/")
+    var ref = FIRDatabaseReference.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -61,36 +63,35 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(animated: Bool) {
         self.buttonStyles()
-        if ref.authData != nil {
-            // user authenticated
-            getUserData()
-            print("segue")
-        } else {
-            // No user is signed in
+        FIRAuth.auth()!.addAuthStateDidChangeListener() { (auth, user) in
+            if let user = user {
+                print("User is signed in with uid:", user.uid)
+                self.getUserData()
+
+            } else {
+                print("No user is signed in.")
+            }
         }
     }
     @IBAction func register(sender: AnyObject) {
         if(usernameTextField.hidden){
             usernameTextField.hidden=false
-            
         }else{
-            
-            self.ref.createUser(self.emailTextfield.text, password: self.passwordTextField.text) { (error: NSError!) in
-                // 2
+            FIRAuth.auth()?.createUserWithEmail(self.emailTextfield.text!, password: self.passwordTextField.text!) { (user, error) in
+                // ...
                 if error == nil {
                     // 3
-                    self.ref.authUser(self.emailTextfield.text, password: self.passwordTextField.text,
-                                      withCompletionBlock: { (error, auth) -> Void in
-                                        // 4
-                                        let newUser = [
-                                            "provider": self.ref.authData.provider,
-                                            "username": self.usernameTextField.text,
-                                            "email": self.emailTextfield.text
-                                        ]
-                                        self.ref.childByAppendingPath("user")
-                                            .childByAppendingPath(self.ref.authData.uid).setValue(newUser)
-                                        self.login(self)
-                    })
+                    let newUser = [
+                        //"provider": self.ref.authData.provider,
+                        "username": self.usernameTextField.text,
+                        "email": self.emailTextfield.text
+                    ]
+                    
+                    //SAVE USER DETAILS
+                    
+                    //self.ref.childByAppendingPath("user").childByAppendingPath(FIRAuth.auth()?.currentUser?.uid).setValue(newUser)
+                    self.login(self)
+
                 }
             }
             
@@ -102,8 +103,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func login(sender: AnyObject) {
-        ref.authUser(emailTextfield.text, password: passwordTextField.text,
-                     withCompletionBlock: { error, authData in
+        
+        FIRAuth.auth()?.signInWithEmail(emailTextfield.text!, password: passwordTextField.text!,
+                                        completion: { error, authData in
                         if error != nil {
                             // There was an error logging in to this account
                             print(error)
@@ -118,7 +120,7 @@ class ViewController: UIViewController {
     
     func getUserData(){
         // Retrieve new posts as they are added to your database
-        ref.childByAppendingPath("user").childByAppendingPath(ref.authData.uid).observeEventType(.Value, withBlock: { snapshot in
+        ref.child("user").child((FIRAuth.auth()?.currentUser?.uid)!).observeEventType(.Value, withBlock: { snapshot in
             self.appDelegate.currentUser=snapshot.value as! [String:String!]
             if(self.checkIfUserHasHome()){
                 print("guy has a home")

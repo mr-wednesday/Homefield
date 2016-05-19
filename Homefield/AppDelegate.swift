@@ -9,24 +9,24 @@
 import UIKit
 import CoreData
 import Firebase
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let myRootRef = Firebase(url:"https://homefield.firebaseio.com/")
-
-    var currentUser = [String:String!]()
+    
     var window: UIWindow?
+    var currentUser = [String:String!]()
     var appColor:UIColor=UIColor()
     var dueRedColor:UIColor=UIColor()
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+        FIRApp.configure()
         
         appColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
         dueRedColor = UIColor.init(red: 133/255.0, green: 34/255.0, blue: 27/255.0, alpha: 1.0)
-
-        // Override point for customization after application launch.
+        
         return true
     }
+    
     func underLinesStyleForTextField(textField:UITextField){
         let border = CALayer()
         let borderWidth = CGFloat(1.0)

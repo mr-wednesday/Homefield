@@ -4,27 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Homefield-Firebase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Homefield.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-HomefieldTests-Firebase.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-HomefieldTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-HomefieldUITests-Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FDC96353F32E1A3DE89898A</key>
+		<key>8FDE5F2BD05926A5222124F8BD8DE0A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1FF792FA9103E102DB70BA90</key>
+		<key>B8D1552AEEBE37C142349EEA086CCEBE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64674571FCC2434407BBFA6D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7170842AD906E7EA2F7E3752</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B8670BA665147C33913BD275</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F1F9C20CDCED9A5A22C8C6DE</key>
+		<key>D0279CB96422E6B19A86E22BD50F271A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

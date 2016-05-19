@@ -13,7 +13,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView:UITableView!
     let currentUser = [String:String!]()
     
-    let ref = Firebase(url:"https://homefield.firebaseio.com/")
+    let ref = FIRDatabase.database().reference()
     
     var home = [String:AnyObject!]()
     
@@ -23,7 +23,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var me = [String:String!]()
     
     var taskObjects = [Task]();
-    
+    var uid = FIRAuth.auth()?.currentUser?.uid
+
     @IBOutlet weak var navigationBarButton: UIButton!
     override func viewWillAppear(animated: Bool) {
         //let appColor: UIColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
@@ -156,7 +157,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if((taskObjects[indexPath.row].doneBy) != nil){
-            if(taskObjects[indexPath.row].doneBy==ref.authData.uid){
+            if(taskObjects[indexPath.row].doneBy==uid){
                 return true
             }else{
                 return false
@@ -169,18 +170,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             let taskCloud = taskObjects[indexPath.row].ref
-            let taskRef = Firebase.init(url: taskCloud)
+            let taskRef = FIRDatabase.init().referenceFromURL(taskCloud)
             taskRef.removeValue()
             self.getTasks()
         }
     }
     func addDataThen(){
-        let newActivty = [
-            "owner": ref.authData.uid,
+        let newActivty : [String:AnyObject] = [
+            "owner": uid!,
             "description": "washes the dishes",
             "creation":NSDate().timeIntervalSince1970
         ]
-        let newRef = self.ref.childByAppendingPath("task").childByAppendingPath("activity").childByAutoId()
+        let newRef = self.ref.child("task").child("activity").childByAutoId()
         newRef.setValue(newActivty)
         
         
@@ -190,7 +191,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //also sets nav bar title
         self.me=appDelegate.currentUser
         
-        ref.childByAppendingPath("home").childByAppendingPath(me["home"]).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        ref.child("home").child(me["home"]!).observeSingleEventOfType(.Value, withBlock: { snapshot in
             self.home = snapshot.value as! [String : AnyObject!]
             print(snapshot.description)
             self.navigationItem.title = self.home["name"] as? String;
@@ -204,36 +205,36 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getTasks(){
-        (ref.childByAppendingPath("task").childByAppendingPath(me["home"])).queryOrderedByChild("createdAt").observeEventType(.Value, withBlock: { snapshot in
+        (ref.child("task").child(me["home"]!)).queryOrderedByChild("createdAt").observeEventType(.Value, withBlock: { snapshot in
             self.taskObjects.removeAll()
-            for child in snapshot.children.allObjects as! [FDataSnapshot] {
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let task = Task();
                 task.ref = child.ref.description
-                if(child.value.objectForKey("type") as! String=="payment"){
+                if(child.value!.objectForKey("type") as! String=="payment"){
                     
-                    task.amount =  (child.value.objectForKey("amount") as! NSString).doubleValue
-                    task.description = child.value.objectForKey("description") as! String
-                    task.type = child.value.objectForKey("type") as! String
-                    task.username = child.value.objectForKey("username") as! String
-                    task.doneBy = child.value.objectForKey("doneBy") as! String
-                    task.createdAt = (child.value.objectForKey("createdAt") as! NSTimeInterval)
+                    task.amount =  (child.value!.objectForKey("amount") as! NSString).doubleValue
+                    task.description = child.value!.objectForKey("description") as! String
+                    task.type = child.value!.objectForKey("type") as! String
+                    task.username = child.value!.objectForKey("username") as! String
+                    task.doneBy = child.value!.objectForKey("doneBy") as! String
+                    task.createdAt = (child.value!.objectForKey("createdAt") as! NSTimeInterval)
                     self.taskObjects.append(task)
                 }
-                if(child.value.objectForKey("type") as! String=="activity"){
-                    if(child.value.objectForKey("doneBy")==nil){
+                if(child.value!.objectForKey("type") as! String=="activity"){
+                    if(child.value!.objectForKey("doneBy")==nil){
                         //TODO
-                        task.description = child.value.objectForKey("description") as! String
-                        task.type = child.value.objectForKey("type") as! String
-                        task.createdAt = (child.value.objectForKey("createdAt") as! NSTimeInterval)
-                        task.dueTo = (child.value.objectForKey("dueTo") as! NSTimeInterval)
+                        task.description = child.value!.objectForKey("description") as! String
+                        task.type = child.value!.objectForKey("type") as! String
+                        task.createdAt = (child.value!.objectForKey("createdAt") as! NSTimeInterval)
+                        task.dueTo = (child.value!.objectForKey("dueTo") as! NSTimeInterval)
                         
                         self.taskObjects.append(task)
                     }else{
-                        task.description = child.value.objectForKey("description") as! String
-                        task.type = child.value.objectForKey("type") as! String
-                        task.username = child.value.objectForKey("username") as! String
-                        task.doneBy = child.value.objectForKey("doneBy") as! String
-                        task.createdAt = (child.value.objectForKey("createdAt") as! NSTimeInterval)
+                        task.description = child.value!.objectForKey("description") as! String
+                        task.type = child.value!.objectForKey("type") as! String
+                        task.username = child.value!.objectForKey("username") as! String
+                        task.doneBy = child.value!.objectForKey("doneBy") as! String
+                        task.createdAt = (child.value!.objectForKey("createdAt") as! NSTimeInterval)
                         self.taskObjects.append(task)
                     }
                     

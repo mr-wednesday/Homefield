@@ -14,7 +14,7 @@ class AddToDoViewController: UIViewController {
     @IBOutlet weak var toDoDescription: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var saveToDoButton: UIButton!
-    let ref = Firebase(url:"https://homefield.firebaseio.com/")
+    let ref = FIRDatabase.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
