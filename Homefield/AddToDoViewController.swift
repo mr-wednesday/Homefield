@@ -44,7 +44,7 @@ class AddToDoViewController: UIViewController {
             "createdAt": NSDate().timeIntervalSince1970,
             "dueTo":datePicker.date.timeIntervalSince1970
             ]
-        let homeid:String = appDelegate.currentUser["home"]!
+        let homeid:String = appDelegate.currentUser.homeId
         let activityRef = ref.childByAppendingPath("task").childByAppendingPath(homeid)
         activityRef.childByAutoId().setValue(activityDetails)
         self.navigationController?.popViewControllerAnimated(true)

@@ -81,16 +81,14 @@ class ViewController: UIViewController {
                 // ...
                 if error == nil {
                     // 3
-                    let newUser = [
-                        //"provider": self.ref.authData.provider,
-                        "username": self.usernameTextField.text,
-                        "email": self.emailTextfield.text
-                    ]
+
                     
-                    //SAVE USER DETAILS
-                    
-                    //self.ref.childByAppendingPath("user").childByAppendingPath(FIRAuth.auth()?.currentUser?.uid).setValue(newUser)
+                let userRef = self.ref.child("user").child((FIRAuth.auth()?.currentUser?.uid)!)
+                    userRef.child("username").setValue(self.usernameTextField.text!)
+                    userRef.child("email").setValue(self.emailTextfield.text!)
+
                     self.login(self)
+                    // DONOT LOGIN INVOKES GET USER DATA NOOO
 
                 }
             }
@@ -121,7 +119,11 @@ class ViewController: UIViewController {
     func getUserData(){
         // Retrieve new posts as they are added to your database
         ref.child("user").child((FIRAuth.auth()?.currentUser?.uid)!).observeEventType(.Value, withBlock: { snapshot in
-            self.appDelegate.currentUser=snapshot.value as! [String:String!]
+            self.appDelegate.currentUser.username=snapshot.value?.objectForKey("username") as! String!
+            self.appDelegate.currentUser.email=snapshot.value?.objectForKey("username") as! String!
+            self.appDelegate.currentUser.homeId=snapshot.value?.objectForKey("home") as! String!
+            self.appDelegate.currentUser.uid=FIRAuth.auth()?.currentUser?.uid
+
             if(self.checkIfUserHasHome()){
                 print("guy has a home")
                 self.performSegueWithIdentifier("navigationSegue", sender: nil)
@@ -136,7 +138,7 @@ class ViewController: UIViewController {
     }
     
     func checkIfUserHasHome()->Bool{
-        if((appDelegate.currentUser["home"]) != nil){
+        if((appDelegate.currentUser.homeId) != nil){
             return true
         }else{
             return false

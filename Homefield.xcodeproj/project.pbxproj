@@ -15,6 +15,9 @@
 		D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */; };
 		D419B6AF1CDFEB3D00571C93 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419B6AE1CDFEB3D00571C93 /* Task.swift */; };
 		D419B6B11CDFFBEC00571C93 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = D419B6B01CDFFBEC00571C93 /* warning.png */; };
+		D41DC8461CEFE2D500186AA5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41DC8451CEFE2D500186AA5 /* User.swift */; };
+		D41DC8491CEFE35300186AA5 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41DC8471CEFE35300186AA5 /* UserTableViewCell.swift */; };
+		D41DC84A1CEFE35300186AA5 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41DC8481CEFE35300186AA5 /* UserTableViewCell.xib */; };
 		D41E5BC41CB3D9560033C722 /* Papyrus_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */; };
 		D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435E2CA1CA4AFDB00DCF291 /* MainViewController.swift */; };
 		D435E2CE1CA4B0EF00DCF291 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435E2CC1CA4B0EF00DCF291 /* TaskTableViewCell.swift */; };
@@ -40,6 +43,10 @@
 		D480ECDF1CA5F9F7000344DE /* TaskItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */; };
 		D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */; };
 		D4C7443E1CEE12C500448B79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */; };
+		D4E1EC441CEFF94300B75275 /* defaultUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4E1EC431CEFF94300B75275 /* defaultUser.jpg */; };
+		D4E1EC461CEFFAAF00B75275 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */; };
+		D4E1EC491CEFFD6A00B75275 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1EC471CEFFD6A00B75275 /* SettingTableViewCell.swift */; };
+		D4E1EC4A1CEFFD6A00B75275 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E1EC481CEFFD6A00B75275 /* SettingTableViewCell.xib */; };
 		D4F85E901CDBA086000853B4 /* woods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E8F1CDBA086000853B4 /* woods.jpg */; };
 		D4F85E921CDBA7D8000853B4 /* house2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E911CDBA7D8000853B4 /* house2.jpg */; };
 		D4F85E941CDBAC72000853B4 /* gravel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F85E931CDBAC72000853B4 /* gravel.jpg */; };
@@ -78,6 +85,9 @@
 		D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
 		D419B6AE1CDFEB3D00571C93 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D419B6B01CDFFBEC00571C93 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		D41DC8451CEFE2D500186AA5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D41DC8471CEFE35300186AA5 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		D41DC8481CEFE35300186AA5 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Papyrus_sprite.png; sourceTree = "<group>"; };
 		D435E2CA1CA4AFDB00DCF291 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D435E2CC1CA4B0EF00DCF291 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,6 +120,10 @@
 		D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskItemTableViewCell.xib; sourceTree = "<group>"; };
 		D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
 		D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4E1EC431CEFF94300B75275 /* defaultUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultUser.jpg; sourceTree = "<group>"; };
+		D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		D4E1EC471CEFFD6A00B75275 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		D4E1EC481CEFFD6A00B75275 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		D4F85E8F1CDBA086000853B4 /* woods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woods.jpg; sourceTree = "<group>"; };
 		D4F85E911CDBA7D8000853B4 /* house2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = house2.jpg; sourceTree = "<group>"; };
 		D4F85E931CDBAC72000853B4 /* gravel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gravel.jpg; sourceTree = "<group>"; };
@@ -173,8 +187,10 @@
 		D437D37F1CA21A5D00239E5A /* Homefield */ = {
 			isa = PBXGroup;
 			children = (
+				D4E1EC401CEFEE2500B75275 /* Statistics */,
 				D459F30F1CE131A30049A815 /* Images */,
 				D437D3801CA21A5D00239E5A /* AppDelegate.swift */,
+				D41DC8451CEFE2D500186AA5 /* User.swift */,
 				D437D3821CA21A5D00239E5A /* ViewController.swift */,
 				D437D3841CA21A5D00239E5A /* Main.storyboard */,
 				D437D38A1CA21A5D00239E5A /* Assets.xcassets */,
@@ -191,6 +207,11 @@
 				D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */,
 				D419B6AC1CDE7CA600571C93 /* AddToDoViewController.swift */,
 				D419B6AE1CDFEB3D00571C93 /* Task.swift */,
+				D41DC8471CEFE35300186AA5 /* UserTableViewCell.swift */,
+				D41DC8481CEFE35300186AA5 /* UserTableViewCell.xib */,
+				D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */,
+				D4E1EC471CEFFD6A00B75275 /* SettingTableViewCell.swift */,
+				D4E1EC481CEFFD6A00B75275 /* SettingTableViewCell.xib */,
 			);
 			path = Homefield;
 			sourceTree = "<group>";
@@ -216,6 +237,7 @@
 		D459F30F1CE131A30049A815 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4E1EC431CEFF94300B75275 /* defaultUser.jpg */,
 				D419B6A61CDE724100571C93 /* stickman.png */,
 				D41E5BC31CB3D9560033C722 /* Papyrus_sprite.png */,
 				D4F85E911CDBA7D8000853B4 /* house2.jpg */,
@@ -252,6 +274,13 @@
 				D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */,
 			);
 			name = "Task Manager";
+			sourceTree = "<group>";
+		};
+		D4E1EC401CEFEE2500B75275 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Statistics;
 			sourceTree = "<group>";
 		};
 		DC679502A5E6B2AD9AA8BB58 /* Pods */ = {
@@ -354,6 +383,7 @@
 				TargetAttributes = {
 					D437D37C1CA21A5D00239E5A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = YZ2BV6RQH9;
 					};
 					D437D3931CA21A5D00239E5A = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -392,8 +422,10 @@
 			files = (
 				D419B6AB1CDE745C00571C93 /* homeiconbig.png in Resources */,
 				D459F30C1CE11CAD0049A815 /* sans.png in Resources */,
+				D4E1EC441CEFF94300B75275 /* defaultUser.jpg in Resources */,
 				D435E2CF1CA4B0EF00DCF291 /* TaskTableViewCell.xib in Resources */,
 				D41E5BC41CB3D9560033C722 /* Papyrus_sprite.png in Resources */,
+				D41DC84A1CEFE35300186AA5 /* UserTableViewCell.xib in Resources */,
 				D437D38E1CA21A5D00239E5A /* LaunchScreen.storyboard in Resources */,
 				D419B6B11CDFFBEC00571C93 /* warning.png in Resources */,
 				D4F85E921CDBA7D8000853B4 /* house2.jpg in Resources */,
@@ -402,6 +434,7 @@
 				D419B6A71CDE724100571C93 /* stickman.png in Resources */,
 				D4F85E941CDBAC72000853B4 /* gravel.jpg in Resources */,
 				D4C7443E1CEE12C500448B79 /* GoogleService-Info.plist in Resources */,
+				D4E1EC4A1CEFFD6A00B75275 /* SettingTableViewCell.xib in Resources */,
 				D419B6A91CDE730900571C93 /* money.png in Resources */,
 				D437D3861CA21A5D00239E5A /* Main.storyboard in Resources */,
 				D45D1CD51CA5E5FB00B4C7C2 /* BalanceTableViewCell.xib in Resources */,
@@ -560,16 +593,20 @@
 				D45D1CCD1CA5E52000B4C7C2 /* ProfileTableViewController.swift in Sources */,
 				D45D1CD01CA5E5E600B4C7C2 /* ProfileTableViewCell.swift in Sources */,
 				D437D3831CA21A5D00239E5A /* ViewController.swift in Sources */,
+				D41DC8461CEFE2D500186AA5 /* User.swift in Sources */,
 				D40CCB531CA22F27009D81CE /* CreateHomeViewController.swift in Sources */,
 				D435E2CE1CA4B0EF00DCF291 /* TaskTableViewCell.swift in Sources */,
 				D437D3891CA21A5D00239E5A /* Homefield.xcdatamodeld in Sources */,
+				D4E1EC461CEFFAAF00B75275 /* SettingsTableViewController.swift in Sources */,
 				D459F3141CE132960049A815 /* PictureRendererTableViewCell.swift in Sources */,
 				D437D3811CA21A5D00239E5A /* AppDelegate.swift in Sources */,
 				D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */,
+				D4E1EC491CEFFD6A00B75275 /* SettingTableViewCell.swift in Sources */,
 				D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */,
 				D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */,
 				D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */,
 				D419B6AF1CDFEB3D00571C93 /* Task.swift in Sources */,
+				D41DC8491CEFE35300186AA5 /* UserTableViewCell.swift in Sources */,
 				D45D1CD41CA5E5FB00B4C7C2 /* BalanceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -714,6 +751,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Homefield/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -722,6 +761,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ugurbastug.Homefield;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -731,6 +771,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Homefield/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -739,6 +781,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ugurbastug.Homefield;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -14,7 +14,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var currentUser = [String:String!]()
+    var currentUser = User()
     var appColor:UIColor=UIColor()
     var dueRedColor:UIColor=UIColor()
     

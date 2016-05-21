@@ -17,14 +17,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var home = [String:AnyObject!]()
     
-    var houseMembers = [String]()
-    
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var me = [String:String!]()
     
     var taskObjects = [Task]();
     var uid = FIRAuth.auth()?.currentUser?.uid
-
+    
+    var houseMembers = [User]()
+    //add reload table in viewdidappear
     @IBOutlet weak var navigationBarButton: UIButton!
     override func viewWillAppear(animated: Bool) {
         //let appColor: UIColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
@@ -32,7 +31,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +44,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.getHouseMembers()
         self.getTasks()
-        me=appDelegate.currentUser
         //self.addDataThen()
         // Do any additional setup after loading the view.
     }
@@ -62,10 +62,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell:TaskTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("Task", forIndexPath: indexPath) as! TaskTableViewCell
         if(taskObjects.count>0){
-            
+            var taskOwner:User=User()
             let taskObject = taskObjects[indexPath.row]
             if((taskObject.doneBy) != nil){
                 cell.ownerUsername = taskObject.doneBy
+                for user in houseMembers {
+                    if(taskObject.doneBy==user.uid){
+                        taskOwner=user
+                    }
+                }
+            }
+            if((taskOwner.profilePicture) != nil){
+                cell.profilePicture.image = taskOwner.profilePicture
+            }else{
+                cell.profilePicture.image = UIImage.init(named: "defaultUser.jpg")
+
             }
             if((taskObject.username) != nil){
                 cell.taskDoneByUsernameLabel.text=taskObject.username.uppercaseString
@@ -92,7 +103,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.dueToLabel.hidden=true
                 cell.doneMark.image = UIImage.init(named: "checked")
                 cell.bgView.backgroundColor = UIColor.whiteColor()
-
+                
             }else{
                 cell.descriptionTextField?.text="\(taskObject.description)"
                 cell.moneyAmountLabel.hidden=true
@@ -112,7 +123,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if(taskObject.checkIfTaskPastIsDueDate()){
                         cell.bgView.backgroundColor = appDelegate.dueRedColor
                         cell.taskDoneByUsernameLabel.text="PAST DUE"
-
+                        
                     }else{
                         cell.bgView.backgroundColor = UIColor.whiteColor()
                     }
@@ -132,7 +143,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     cell.dueToLabel.hidden=true
                     cell.doneMark.image = UIImage.init(named: "checked")
                     cell.bgView.backgroundColor = UIColor.whiteColor()
-
+                    
                 }
                 
             }
@@ -170,7 +181,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             let taskCloud = taskObjects[indexPath.row].ref
-            let taskRef = FIRDatabase.init().referenceFromURL(taskCloud)
+            let taskRef = FIRDatabase.database().referenceFromURL(taskCloud)
+
             taskRef.removeValue()
             self.getTasks()
         }
@@ -189,23 +201,55 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func getHouseMembers(){
         //also sets nav bar title
-        self.me=appDelegate.currentUser
-        
-        ref.child("home").child(me["home"]!).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        //HOUSE DETAILS
+        ref.child("home").child(appDelegate.currentUser.homeId).observeSingleEventOfType(.Value, withBlock: { snapshot in
             self.home = snapshot.value as! [String : AnyObject!]
             print(snapshot.description)
             self.navigationItem.title = self.home["name"] as? String;
             self.navigationBarButton.setTitle(self.home["name"] as? String, forState: UIControlState.Normal)
-            
             // do some stuff once
             
         })
-        
+        //HOUSE MEMBER ID's
+        ref.child("home").child(appDelegate.currentUser.homeId).child("members").observeSingleEventOfType(.Value, withBlock: { snapshot in
+            // do some stuff once
+            for member in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let newUser = User();
+                newUser.uid=member.value! as! String
+                self.ref.child("user").child(newUser.uid).observeSingleEventOfType(.Value, withBlock: { childSnap in
+                    self.houseMembers.append(newUser)
+                    newUser.email = childSnap.value!.objectForKey("email") as! String
+                    newUser.username = childSnap.value!.objectForKey("username") as! String
+                    if((childSnap.value!.objectForKey("profilePicture")) != nil){
+                        newUser.profilePictureURL = childSnap.value!.objectForKey("profilePicture") as! String
+                        
+                        let storage = FIRStorage.storage()
+                        let ppRef = storage.reference().child("profilePicture").child(newUser.uid)
+
+                        ppRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                            if (error != nil) {
+                                // Uh-oh, an error occurred!
+                            } else {
+                                
+                                // Data for "images/island.jpg" is returned
+                                newUser.profilePicture = UIImage(data: data!)
+                            }
+                            self.houseMembers.append(newUser)
+                            self.tableView.reloadData()
+                        }
+                    }
+
+                })
+            
+            
+            }
+            
+        })
         
     }
     
     func getTasks(){
-        (ref.child("task").child(me["home"]!)).queryOrderedByChild("createdAt").observeEventType(.Value, withBlock: { snapshot in
+        (ref.child("task").child(appDelegate.currentUser.homeId)).queryOrderedByChild("createdAt").observeEventType(.Value, withBlock: { snapshot in
             self.taskObjects.removeAll()
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let task = Task();
@@ -252,7 +296,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier=="homeDetailsSegue"){
             (segue.destinationViewController as! HomeDetailsViewController).home=self.home
-            (segue.destinationViewController as! HomeDetailsViewController).homeId=self.me["home"]!
+            (segue.destinationViewController as! HomeDetailsViewController).homeId=appDelegate.currentUser.homeId!
+            (segue.destinationViewController as! HomeDetailsViewController).houseMembers=houseMembers
+
         }
         if(segue.identifier=="taskManagerSegue"){
             (segue.destinationViewController as! TaskManagerViewController).allTasks=taskObjects
@@ -261,7 +307,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     
-
+    
     
     
 }

@@ -140,10 +140,10 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func markTodoAsDone(task: Task){
-        let taskRef = FIRDatabase.init().referenceWithPath(task.ref)
+        let taskRef = FIRDatabase.database().referenceFromURL(task.ref)
         
         let updates = ["doneBy": uid,
-                       "username":appDelegate.currentUser["username"] as String!
+                       "username":appDelegate.currentUser.username as String!
         ]
 
         taskRef.updateChildValues(updates)
@@ -156,10 +156,10 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
                 "description":paymentDescription,
                 "amount": paymentAmount,
                 "type":"payment",
-                "username":appDelegate.currentUser["username"] as String!,
+                "username":appDelegate.currentUser.username,
                 "createdAt": NSDate().timeIntervalSince1970,
                 ]
-            let homeid:String = appDelegate.currentUser["home"]!
+            let homeid:String = appDelegate.currentUser.homeId
             let paymentRef = ref.child("task").child(homeid)
             
             paymentRef.childByAutoId().setValue(paymentDetails)
@@ -169,10 +169,10 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
                 "doneBy":uid!,
                 "description":paymentDescription,
                 "type":"activity",
-                "username":appDelegate.currentUser["username"] as String!,
+                "username":appDelegate.currentUser.username,
                 "createdAt": NSDate().timeIntervalSince1970,
                 ]
-            let homeid:String = appDelegate.currentUser["home"]!
+            let homeid:String = appDelegate.currentUser.homeId
             let activityRef = ref.child("task").childByAppendingPath(homeid)
             activityRef.childByAutoId().setValue(activityDetails)
         }

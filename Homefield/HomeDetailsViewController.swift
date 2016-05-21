@@ -17,11 +17,14 @@ class HomeDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var homeNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var homeId:String = String()
+    var houseMembers = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeNameLabel.text=(home["name"] as! String!).uppercaseString
         self.homeIdButton.setTitle(homeId, forState: UIControlState.Normal)
+        self.tableView.registerNib(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "User")
+
         // Do any additional setup after loading the view.
     }
 
@@ -36,13 +39,15 @@ class HomeDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return houseMembers.count
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "hi")
+        let cell:UserTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath) as! UserTableViewCell
+        cell.usernameLabel.text = houseMembers[indexPath.row].username
+        
         return cell
     }
     /*

@@ -51,7 +51,7 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
         appDelegate.underLinesStyleForTextField(homeIdTextField)
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        self.welcomeLabel.text="Hi \(appDelegate.currentUser["username"]!)!"
+        self.welcomeLabel.text="Hi \(appDelegate.currentUser.username)!"
         // Do any additional setup after loading the view.
     }
     
@@ -68,6 +68,7 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     @IBAction func createNewHomeAction(sender: AnyObject) {
         self.homeNameTextField.hidden=false;
         self.rentTextField.hidden=false;
+        createNewHome()
     }
     
     
@@ -79,6 +80,14 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
         let homeMembersInit = NSArray.init(object: uid!)
         let homeData:[String:AnyObject] = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":homeMembersInit];
         homeRef.setValue(homeData)
+
+        self.ref.child("user")
+            .child(uid!).child("home").setValue(homeRef.key)
+        
+        
+        //perform segue pls..
+        
+        
         /*
         homeRef.setValue(homeData, withCompletionBlock: {
             (error:NSError?, ref:Firebase!) in
