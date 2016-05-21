@@ -233,6 +233,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 // Data for "images/island.jpg" is returned
                                 newUser.profilePicture = UIImage(data: data!)
+                                if(newUser.uid==FIRAuth.auth()?.currentUser?.uid){
+                                    self.appDelegate.currentUser.profilePicture=UIImage(data: data!)
+                                }
                             }
                             self.houseMembers.append(newUser)
                             self.tableView.reloadData()

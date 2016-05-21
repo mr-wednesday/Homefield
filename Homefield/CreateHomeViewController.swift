@@ -36,13 +36,15 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
                 ]
                 self.ref.child("user")
                     .child(uid!).updateChildValues(homeData)
+                appDelegate.currentUser.homeId = id
+                self.performSegueWithIdentifier("launchTaskSegue", sender: self)
             }
-
+            
         }else{
             self.registerHomeButton.setTitle("This is the home.", forState: UIControlState.Normal)
             self.homeIdTextField.hidden=false
         }
-
+        
     }
     
     override func viewDidLoad() {
@@ -80,23 +82,22 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
         let homeMembersInit = NSArray.init(object: uid!)
         let homeData:[String:AnyObject] = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":homeMembersInit];
         homeRef.setValue(homeData)
-
+        
         self.ref.child("user")
             .child(uid!).child("home").setValue(homeRef.key)
-        
-        
-        //perform segue pls..
+        appDelegate.currentUser.homeId = homeRef.key
+        self.performSegueWithIdentifier("launchTaskSegue", sender: self)
         
         
         /*
-        homeRef.setValue(homeData, withCompletionBlock: {
-            (error:NSError?, ref:Firebase!) in
-            if (error != nil) {
-                print("Data could not be saved.")
-            } else {
-                print("Data saved successfully!")
-            }
-        })
+         homeRef.setValue(homeData, withCompletionBlock: {
+         (error:NSError?, ref:Firebase!) in
+         if (error != nil) {
+         print("Data could not be saved.")
+         } else {
+         print("Data saved successfully!")
+         }
+         })
          */
     }
     

@@ -97,7 +97,7 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
                 let cell:ProfileTableViewCell = tableView.dequeueReusableCellWithIdentifier("ProfileHeader", forIndexPath: indexPath) as! ProfileTableViewCell
                 
                 cell.profilePictureButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-                if((appDelegate.currentUser.profilePictureURL == nil)){
+                if((appDelegate.currentUser.profilePicture == nil)){
                     cell.profilePicture.image = UIImage.init(named: "defaultUser.jpg")
                 }else{
                     cell.profilePicture.image = appDelegate.currentUser.profilePicture
