@@ -47,7 +47,7 @@ class HomeDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UserTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath) as! UserTableViewCell
         cell.usernameLabel.text = houseMembers[indexPath.row].username
-        
+        cell.userBalanceLabel.hidden=true
         return cell
     }
     /*

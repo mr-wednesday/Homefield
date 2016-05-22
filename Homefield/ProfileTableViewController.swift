@@ -28,6 +28,7 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.latestPayments.removeAll()
         self.getPayments()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.tableView.registerNib(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeader")
@@ -132,7 +133,6 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     func getPayments(){
         var totalPaymentsDone:Double=Double()
-
         (ref.child("task").child(appDelegate.currentUser.homeId).observeEventType(.Value, withBlock: { snapshot in
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let task = Task();
@@ -190,7 +190,8 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let downloadURL = metadata!.downloadURL()?.absoluteString
                 self.ref.child("user").child(self.uid!).child("profilePicture").setValue(downloadURL!)
-                
+                self.appDelegate.currentUser.profilePicture = UIImage.init(data: imageData)
+                self.tableView.reloadData()
             }
         }
     }

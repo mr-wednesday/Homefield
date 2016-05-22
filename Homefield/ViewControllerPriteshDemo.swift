@@ -47,8 +47,6 @@ class ViewControllerPriteshDemo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.calculate()
-        var user = 5
-        
         pieChartView.frame = CGRect(x: 30, y: /*40*/40, width: 300/*UIScreen.mainScreen().bounds.size.width*/, height: 400)
         
         

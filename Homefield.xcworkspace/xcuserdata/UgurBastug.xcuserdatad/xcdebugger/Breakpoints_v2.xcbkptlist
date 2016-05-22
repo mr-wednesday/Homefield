@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485495660.275843"
+            timestampString = "485598039.083204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -713,7 +713,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485495660.275843"
+            timestampString = "485598039.083204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -729,7 +729,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485495660.275843"
+            timestampString = "485598039.083204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -745,7 +745,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485495660.275843"
+            timestampString = "485598039.083204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
@@ -905,7 +905,7 @@
                   moduleName = "Homefield"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/UgurBastug/Documents/Homefield/Homefield/ViewController.swift"
-                  timestampString = "485596925.459159"
+                  timestampString = "485597255.723243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
@@ -920,7 +920,7 @@
                   moduleName = "Homefield"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/UgurBastug/Documents/Homefield/Homefield/ViewController.swift"
-                  timestampString = "485596925.459473"
+                  timestampString = "485597255.723501"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -953,7 +953,7 @@
                   moduleName = "Homefield"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/UgurBastug/Documents/Homefield/Homefield/ViewController.swift"
-                  timestampString = "485596925.460918"
+                  timestampString = "485597255.724748"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "90"
@@ -968,7 +968,7 @@
                   moduleName = "Homefield"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/UgurBastug/Documents/Homefield/Homefield/ViewController.swift"
-                  timestampString = "485596925.461123"
+                  timestampString = "485597255.724955"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "90"
@@ -1033,43 +1033,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485542074.810465"
+            timestampString = "485598039.083204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Homefield/ProfileTableViewController.swift"
+            timestampString = "485598039.083204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Homefield/ProfileTableViewController.swift"
+            timestampString = "485598039.083204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485542076.767231"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Homefield/ProfileTableViewController.swift"
-            timestampString = "485542081.402225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1241,11 +1241,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ViewControllerPriteshDemo.swift"
-            timestampString = "485596817.932976"
+            timestampString = "485597254.61674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Homefield/ViewControllerPriteshDemo.swift"
+            timestampString = "485597254.61674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1257,11 +1273,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ViewControllerPriteshDemo.swift"
-            timestampString = "485596817.932976"
+            timestampString = "485597254.61674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1273,11 +1289,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homefield/ViewControllerPriteshDemo.swift"
-            timestampString = "485596817.932976"
+            timestampString = "485597243.910639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
