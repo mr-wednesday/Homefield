@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = false
+        FIRDatabase.database().persistenceEnabled = true
         //Let's do it manual for now.
         
         appColor = UIColor.init(red: 80/255.0, green: 174/255.0, blue: 156/255.0, alpha: 1.0)
@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
+        textField.setNeedsLayout()
+        textField.setNeedsUpdateConstraints()
         
     }
     func setButtonStyle(button:UIButton,borderColor:UIColor){
@@ -49,7 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         button.layer.borderWidth=1.2
         button.layer.cornerRadius=16
         button.layer.masksToBounds=true
+
     }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

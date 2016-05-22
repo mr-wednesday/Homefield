@@ -30,8 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.buttonStyles()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         if(!calledOnce){
             FIRAuth.auth()!.addAuthStateDidChangeListener() { (auth, user) in
                 if let user = user {
@@ -64,9 +63,13 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    override func viewDidAppear(animated: Bool) {
+        self.buttonStyles()
+
     }
     func getEmailFromCoreData() {
         let managedContext = appDelegate.managedObjectContext
@@ -109,6 +112,23 @@ class ViewController: UIViewController {
         self.underLinesStyleForTextField(emailTextfield)
         self.underLinesStyleForTextField(passwordTextField)
         self.underLinesStyleForTextField(usernameTextField)
+        
+    }
+    
+    func rotated()
+    {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            print("landscape")
+            buttonStyles()
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            print("Portrait")
+            buttonStyles()
+
+        }
         
     }
     
