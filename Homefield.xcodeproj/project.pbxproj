@@ -42,6 +42,8 @@
 		D480ECDE1CA5F9F7000344DE /* TaskItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480ECDC1CA5F9F7000344DE /* TaskItemTableViewCell.swift */; };
 		D480ECDF1CA5F9F7000344DE /* TaskItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */; };
 		D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */; };
+		D48BC1821CF0E93700910426 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BC1801CF0E93700910426 /* PieChartView.swift */; };
+		D48BC1831CF0E93700910426 /* ViewControllerPriteshDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BC1811CF0E93700910426 /* ViewControllerPriteshDemo.swift */; };
 		D4C7443E1CEE12C500448B79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */; };
 		D4E1EC441CEFF94300B75275 /* defaultUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4E1EC431CEFF94300B75275 /* defaultUser.jpg */; };
 		D4E1EC461CEFFAAF00B75275 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */; };
@@ -119,6 +121,8 @@
 		D480ECDC1CA5F9F7000344DE /* TaskItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItemTableViewCell.swift; sourceTree = "<group>"; };
 		D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskItemTableViewCell.xib; sourceTree = "<group>"; };
 		D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
+		D48BC1801CF0E93700910426 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		D48BC1811CF0E93700910426 /* ViewControllerPriteshDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPriteshDemo.swift; sourceTree = "<group>"; };
 		D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4E1EC431CEFF94300B75275 /* defaultUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultUser.jpg; sourceTree = "<group>"; };
 		D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		D437D37F1CA21A5D00239E5A /* Homefield */ = {
 			isa = PBXGroup;
 			children = (
+				D48BC17F1CF0E8DA00910426 /* Analysis */,
 				D4E1EC401CEFEE2500B75275 /* Statistics */,
 				D459F30F1CE131A30049A815 /* Images */,
 				D437D3801CA21A5D00239E5A /* AppDelegate.swift */,
@@ -274,6 +279,15 @@
 				D480ECDD1CA5F9F7000344DE /* TaskItemTableViewCell.xib */,
 			);
 			name = "Task Manager";
+			sourceTree = "<group>";
+		};
+		D48BC17F1CF0E8DA00910426 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				D48BC1801CF0E93700910426 /* PieChartView.swift */,
+				D48BC1811CF0E93700910426 /* ViewControllerPriteshDemo.swift */,
+			);
+			name = Analysis;
 			sourceTree = "<group>";
 		};
 		D4E1EC401CEFEE2500B75275 /* Statistics */ = {
@@ -604,7 +618,9 @@
 				D4E1EC491CEFFD6A00B75275 /* SettingTableViewCell.swift in Sources */,
 				D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */,
 				D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */,
+				D48BC1831CF0E93700910426 /* ViewControllerPriteshDemo.swift in Sources */,
 				D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */,
+				D48BC1821CF0E93700910426 /* PieChartView.swift in Sources */,
 				D419B6AF1CDFEB3D00571C93 /* Task.swift in Sources */,
 				D41DC8491CEFE35300186AA5 /* UserTableViewCell.swift in Sources */,
 				D45D1CD41CA5E5FB00B4C7C2 /* BalanceTableViewCell.swift in Sources */,

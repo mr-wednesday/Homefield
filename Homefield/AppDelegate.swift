@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentUser = User()
     var appColor:UIColor=UIColor()
     var dueRedColor:UIColor=UIColor()
-    
+    var storedTasks=[Task]()
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
         

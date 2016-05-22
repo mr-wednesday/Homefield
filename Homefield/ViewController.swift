@@ -52,9 +52,11 @@ class ViewController: UIViewController {
     func buttonStyles(){
         self.setButtonStyle(registerButton)
         self.setButtonStyle(loginButton)
-        self.setButtonStyle(forgotPass)
+        //self.setButtonStyle(forgotPass)
         self.underLinesStyleForTextField(emailTextfield)
         self.underLinesStyleForTextField(passwordTextField)
+        self.underLinesStyleForTextField(usernameTextField)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +78,8 @@ class ViewController: UIViewController {
     @IBAction func register(sender: AnyObject) {
         if(usernameTextField.hidden){
             usernameTextField.hidden=false
+            self.loginButton.hidden=true
+            self.registerButton.setTitle("Continue", forState: UIControlState.Normal)
         }else{
             FIRAuth.auth()?.createUserWithEmail(self.emailTextfield.text!, password: self.passwordTextField.text!) { (user, error) in
                 // ...

@@ -200,6 +200,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     func getHouseMembers(){
+        self.houseMembers.removeAll()
+
         //also sets nav bar title
         //HOUSE DETAILS
         ref.child("home").child(appDelegate.currentUser.homeId).observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -217,7 +219,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let newUser = User();
                 newUser.uid=member.value! as! String
                 self.ref.child("user").child(newUser.uid).observeSingleEventOfType(.Value, withBlock: { childSnap in
-                    self.houseMembers.append(newUser)
                     newUser.email = childSnap.value!.objectForKey("email") as! String
                     newUser.username = childSnap.value!.objectForKey("username") as! String
                     if((childSnap.value!.objectForKey("profilePicture")) != nil){
@@ -236,17 +237,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 if(newUser.uid==FIRAuth.auth()?.currentUser?.uid){
                                     self.appDelegate.currentUser.profilePicture=UIImage(data: data!)
                                 }
-                            }
-                            self.houseMembers.append(newUser)
-                            self.tableView.reloadData()
-                        }
-                    }
+                                self.tableView.reloadData()
 
+                            }
+
+                        }
+
+                    }
+                    self.houseMembers.append(newUser)
                 })
-            
-            
             }
-            
+
         })
         
     }
@@ -288,6 +289,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             self.taskObjects = self.taskObjects.reverse()
+            //demo purposes.
+            self.appDelegate.storedTasks = self.taskObjects
+            //delete after work
             self.tableView.reloadData()
             
             
