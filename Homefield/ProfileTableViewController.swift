@@ -28,7 +28,6 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.latestPayments.removeAll()
         self.getPayments()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.tableView.registerNib(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeader")
@@ -134,10 +133,11 @@ class ProfileTableViewController: UIViewController, UITableViewDelegate, UITable
     func getPayments(){
         var totalPaymentsDone:Double=Double()
         (ref.child("task").child(appDelegate.currentUser.homeId).observeEventType(.Value, withBlock: { snapshot in
+            self.latestPayments.removeAll()
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let task = Task();
                 if(child.value!.objectForKey("type") as! String=="payment"){
-                    if(child.value!.objectForKey("doneBy")! as! String == self.uid){
+                    if(child.value!.objectForKey("doneBy")! as? String == self.uid){
                         task.amount =  (child.value!.objectForKey("amount") as! NSString).doubleValue
                         task.description = (child.value!.objectForKey("description") as! String)
                         totalPaymentsDone+=task.amount

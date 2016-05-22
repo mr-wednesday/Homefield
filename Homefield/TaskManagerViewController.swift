@@ -150,32 +150,37 @@ class TaskManagerViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func saveTask(paymentAmount: String, paymentDescription: String){
-        if (self.savePaymentButton.currentTitle=="SAVE PAYMENT") {
-            let paymentDetails : [NSString:AnyObject] = [
-                "doneBy":uid!,
-                "description":paymentDescription,
-                "amount": paymentAmount,
-                "type":"payment",
-                "username":appDelegate.currentUser.username,
-                "createdAt": NSDate().timeIntervalSince1970,
-                ]
-            let homeid:String = appDelegate.currentUser.homeId
-            let paymentRef = ref.child("task").child(homeid)
-            
-            paymentRef.childByAutoId().setValue(paymentDetails)
+        if(taskTextField.text! != ""){
+            if (self.savePaymentButton.currentTitle=="SAVE PAYMENT") {
+                let paymentDetails : [NSString:AnyObject] = [
+                    "doneBy":uid!,
+                    "description":paymentDescription,
+                    "amount": paymentAmount,
+                    "type":"payment",
+                    "username":appDelegate.currentUser.username,
+                    "createdAt": NSDate().timeIntervalSince1970,
+                    ]
+                let homeid:String = appDelegate.currentUser.homeId
+                let paymentRef = ref.child("task").child(homeid)
+                
+                paymentRef.childByAutoId().setValue(paymentDetails)
+            }
+            if(self.savePaymentButton.currentTitle=="SAVE ACTIVITY"){
+                let activityDetails : [NSString:AnyObject] = [
+                    "doneBy":uid!,
+                    "description":paymentDescription,
+                    "type":"activity",
+                    "username":appDelegate.currentUser.username,
+                    "createdAt": NSDate().timeIntervalSince1970,
+                    ]
+                let homeid:String = appDelegate.currentUser.homeId
+                let activityRef = ref.child("task").childByAppendingPath(homeid)
+                activityRef.childByAutoId().setValue(activityDetails)
+            }
+        }else{
+            taskTextField.placeholder="Please enter payment description."
         }
-        if(self.savePaymentButton.currentTitle=="SAVE ACTIVITY"){
-            let activityDetails : [NSString:AnyObject] = [
-                "doneBy":uid!,
-                "description":paymentDescription,
-                "type":"activity",
-                "username":appDelegate.currentUser.username,
-                "createdAt": NSDate().timeIntervalSince1970,
-                ]
-            let homeid:String = appDelegate.currentUser.homeId
-            let activityRef = ref.child("task").childByAppendingPath(homeid)
-            activityRef.childByAutoId().setValue(activityDetails)
-        }
+
 
         
         
