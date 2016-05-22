@@ -44,6 +44,7 @@
 		D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */; };
 		D48BC1821CF0E93700910426 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BC1801CF0E93700910426 /* PieChartView.swift */; };
 		D48BC1831CF0E93700910426 /* ViewControllerPriteshDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BC1811CF0E93700910426 /* ViewControllerPriteshDemo.swift */; };
+		D48BC1851CF2321400910426 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48BC1841CF2321400910426 /* Home.swift */; };
 		D4C7443E1CEE12C500448B79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */; };
 		D4E1EC441CEFF94300B75275 /* defaultUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4E1EC431CEFF94300B75275 /* defaultUser.jpg */; };
 		D4E1EC461CEFFAAF00B75275 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */; };
@@ -123,6 +124,7 @@
 		D480FA3A1CDD36D900EEA424 /* HomeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailsViewController.swift; sourceTree = "<group>"; };
 		D48BC1801CF0E93700910426 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		D48BC1811CF0E93700910426 /* ViewControllerPriteshDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPriteshDemo.swift; sourceTree = "<group>"; };
+		D48BC1841CF2321400910426 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D4C7443C1CEE118800448B79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4E1EC431CEFF94300B75275 /* defaultUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultUser.jpg; sourceTree = "<group>"; };
 		D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				D4E1EC451CEFFAAF00B75275 /* SettingsTableViewController.swift */,
 				D4E1EC471CEFFD6A00B75275 /* SettingTableViewCell.swift */,
 				D4E1EC481CEFFD6A00B75275 /* SettingTableViewCell.xib */,
+				D48BC1841CF2321400910426 /* Home.swift */,
 			);
 			path = Homefield;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				D480FA3B1CDD36D900EEA424 /* HomeDetailsViewController.swift in Sources */,
 				D4E1EC491CEFFD6A00B75275 /* SettingTableViewCell.swift in Sources */,
 				D480ECDA1CA5F763000344DE /* TaskManagerViewController.swift in Sources */,
+				D48BC1851CF2321400910426 /* Home.swift in Sources */,
 				D435E2CB1CA4AFDB00DCF291 /* MainViewController.swift in Sources */,
 				D48BC1831CF0E93700910426 /* ViewControllerPriteshDemo.swift in Sources */,
 				D419B6AD1CDE7CA600571C93 /* AddToDoViewController.swift in Sources */,

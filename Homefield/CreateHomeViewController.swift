@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
+    @IBOutlet weak var createNewHomeButton: UIButton!
     let ref = FIRDatabase.database().reference()
     var userData = [String: String]()
     var option:String=""
@@ -22,6 +23,7 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     var homeIsValid=true
     var uid = FIRAuth.auth()?.currentUser?.uid
     //TODO CHECK
+    
     @IBAction func registerExistingHomeClick(sender: AnyObject) {
         
         if(self.registerHomeButton.currentTitle=="This is the home."){
@@ -70,36 +72,41 @@ class CreateHomeViewController: UIViewController ,UITextFieldDelegate{
     @IBAction func createNewHomeAction(sender: AnyObject) {
         self.homeNameTextField.hidden=false;
         self.rentTextField.hidden=false;
-        createNewHome()
+        self.registerHomeButton.hidden=true
+        self.createNewHomeButton.setTitle("Create Now", forState: UIControlState.Normal)
+        
+        if(self.homeNameTextField.text != ""){
+            createNewHome()
+        }
     }
     
     
     func createNewHome(){
-        
-        var homeRef = ref.child("home")
-        homeRef = homeRef.childByAutoId()
-        
-        let homeMembersInit = NSArray.init(object: uid!)
-        let homeData:[String:AnyObject] = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":homeMembersInit];
-        homeRef.setValue(homeData)
-        
-        self.ref.child("user")
-            .child(uid!).child("home").setValue(homeRef.key)
-        appDelegate.currentUser.homeId = homeRef.key
-        self.performSegueWithIdentifier("launchTaskSegue", sender: self)
-        
-        
-        /*
-         homeRef.setValue(homeData, withCompletionBlock: {
-         (error:NSError?, ref:Firebase!) in
-         if (error != nil) {
-         print("Data could not be saved.")
-         } else {
-         print("Data saved successfully!")
-         }
-         })
-         */
-    }
+            var homeRef = ref.child("home")
+            homeRef = homeRef.childByAutoId()
+            
+            let homeMembersInit = NSArray.init(object: uid!)
+            let homeData:[String:AnyObject] = ["name": self.homeNameTextField.text!,"rent":rentTextField.text!,"members":homeMembersInit];
+            homeRef.setValue(homeData)
+            
+            self.ref.child("user")
+                .child(uid!).child("home").setValue(homeRef.key)
+            appDelegate.currentUser.homeId = homeRef.key
+            
+            
+            homeRef.setValue(homeData, withCompletionBlock: {
+                (error:NSError?, ref:FIRDatabaseReference!) in
+                if (error != nil) {
+                    print("Data could not be saved.")
+                } else {
+                    print("Data saved successfully!")
+                    self.performSegueWithIdentifier("launchTaskSegue", sender: self)
+                    
+                }
+            })
+        }
+
+    
     
     
     /*

@@ -118,8 +118,10 @@
                             <constraint firstAttribute="trailing" secondItem="T4O-wM-5EK" secondAttribute="trailing" constant="20" id="BAs-lx-o5X"/>
                             <constraint firstItem="MFB-hM-sZf" firstAttribute="top" secondItem="9qo-jS-KpO" secondAttribute="bottom" constant="63" id="BBF-fU-Lcn"/>
                             <constraint firstAttribute="trailing" secondItem="Qxq-Tc-6Eg" secondAttribute="trailing" id="GKQ-ux-mwY"/>
+                            <constraint firstItem="T4O-wM-5EK" firstAttribute="centerX" secondItem="Qxq-Tc-6Eg" secondAttribute="centerX" id="HuU-lM-We9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fey-zv-Xsi" secondAttribute="trailing" constant="88" id="IMp-pe-iit"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MFB-hM-sZf" secondAttribute="trailing" constant="88" id="Ikr-Ab-10v"/>
+                            <constraint firstItem="9qo-jS-KpO" firstAttribute="centerX" secondItem="Qxq-Tc-6Eg" secondAttribute="centerX" id="InI-xd-deJ"/>
                             <constraint firstAttribute="trailing" secondItem="LzW-hY-QjP" secondAttribute="trailing" constant="91" id="Q6n-Ix-XTG"/>
                             <constraint firstItem="T4O-wM-5EK" firstAttribute="top" secondItem="0Td-jx-7Fe" secondAttribute="bottom" constant="24" id="Siy-su-byJ"/>
                             <constraint firstItem="9qo-jS-KpO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Uyu-HP-kmJ"/>
@@ -268,6 +270,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createNewHomeButton" destination="eIr-a2-Nhb" id="LpE-gk-com"/>
                         <outlet property="homeIdTextField" destination="VfY-tT-wyt" id="WIT-o8-2hL"/>
                         <outlet property="homeNameTextField" destination="NAV-y1-quH" id="xWm-hP-CrM"/>
                         <outlet property="registerHomeButton" destination="c9G-8q-esI" id="OYK-1I-2pO"/>

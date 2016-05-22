@@ -24,7 +24,7 @@ class HomeDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         self.homeNameLabel.text=(home["name"] as! String!).uppercaseString
         self.homeIdButton.setTitle(homeId, forState: UIControlState.Normal)
         self.tableView.registerNib(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "User")
-
+self.descriptionLabel.text="This is your unique home id. Click it to copy and send it to your homemates for them to join the \(home["name"]!)"
         // Do any additional setup after loading the view.
     }
 
